@@ -1,13 +1,18 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import HomePage from "./home";
+
+const HomePage = lazy(() => import("./pages/home"));
+const CallbackPage = lazy(() => import("./pages/callback"));
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route component={HomePage} />
-      </Switch>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/callback" component={CallbackPage} />
+        </Switch>
+      </Suspense>
     </Router>
   );
 }
