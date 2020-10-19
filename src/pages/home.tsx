@@ -1,7 +1,8 @@
 import React, { lazy, useEffect, useState } from "react";
-import SpotifyTopArtists from "../components/spotify-top/spotify-top-artists";
 
 const SpotifySignInLazy = lazy(() => import("../components/spotify-sign-in"));
+const SpotifyTopArtistsLazy = lazy(
+  () => import("../components/spotify-top/spotify-top-artists"));
 
 const HomePage = () => {
   const [hasSpotifyToken, setHasSpotifyToken] = useState(false);
@@ -18,7 +19,7 @@ const HomePage = () => {
       {hasSpotifyToken ? (
         <div>
           Home..
-          <SpotifyTopArtists />
+          <SpotifyTopArtistsLazy />
         </div>
       ) : (
         <SpotifySignInLazy />

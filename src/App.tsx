@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/(|spotify-favourites)" component={HomePage} />
           <Route exact path="/callback" component={CallbackPage} />
         </Switch>
       </Suspense>

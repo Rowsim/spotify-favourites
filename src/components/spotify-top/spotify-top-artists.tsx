@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Ref, useEffect, useState } from "react";
 import { getUserTopArtists } from "../../services/spotify-service";
 import { Artist } from "../../services/spotify-types";
 import "./spotify-top.scss";
@@ -6,33 +6,53 @@ import "./spotify-top.scss";
 const SpotifyTopArtists = () => {
   const [artists, setArtists] = useState([] as Array<Artist>);
   const [selectedArtist, setSelectedArtist] = useState({} as Artist);
+  const [currentElementPos, setCurrentElementPos] = useState(0);
+
+  const scrollSelector = (left: boolean) => {
+    const selectorElement = document.querySelector(
+      ".spotify-top__selector"
+    ) as HTMLDivElement;
+    const scrollAmount = selectorElement.offsetWidth * (1 - 0.05);
+    selectorElement.scrollBy({
+      top: 0,
+      left: left ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
-    getUserTopArtists("medium_term", 14).then((result) => {
+    getUserTopArtists("medium_term").then((result) => {
       setArtists(result.items);
-      setSelectedArtist(result.items[0]);
+      setSelectedArtist(result.items && result.items[0]);
     });
 
     /* const artists = getDummyArtists(); */
-/*     setArtists(artists);
+    /*     setArtists(artists);
     setSelectedArtist(artists[0]); */
   }, []);
 
   return (
     <div className="spotify-top">
-      {console.log(artists)}
       <div className="spotify-top__title">Your top artists</div>
-      <div className="spotify-top__selector">
-        {artists.map((artist, index) => (
-          <ArtistSelector
-            artist={artist}
-            selected={artist === selectedArtist}
-            setSelectedArtist={setSelectedArtist}
-            key={index}
-          />
-        ))}
+      <div className="spotify-top__scroll-buttons">
+        <button onClick={() => scrollSelector(true)}>Left</button>
+        <button onClick={() => scrollSelector(false)}>Right</button>
       </div>
-      <SelectedArtist artist={selectedArtist} />
+
+      <div className="spotify-top__selector">
+        {artists &&
+          artists.map((artist, index) => (
+            <ArtistSelector
+              artist={artist}
+              selected={artist === selectedArtist}
+              setSelectedArtist={setSelectedArtist}
+              setCurrentElementPos={setCurrentElementPos}
+              currentElementPos={currentElementPos}
+              key={index}
+            />
+          ))}
+      </div>
+      {selectedArtist && <SelectedArtist artist={selectedArtist} />}
     </div>
   );
 };
@@ -41,31 +61,59 @@ const ArtistSelector = ({
   artist,
   selected,
   setSelectedArtist,
+  setCurrentElementPos,
+  currentElementPos,
 }: {
   artist: Artist;
   selected: boolean;
   setSelectedArtist: Function;
-}) => (
-  <div
-    onClick={() => setSelectedArtist(artist)}
-    className={`spotify-top__selector__item ${
-      selected ? "spotify-top__selector__item--selected" : ""
-    }`}
-  >
-    <img alt="artist" src={artist.images[0].url} />
-    <div>{artist.name}</div>
-  </div>
-);
+  setCurrentElementPos: Function;
+  currentElementPos: number;
+}) => {
+  const scrollToElement = (event: any) => {
+    //TODO Remove this function..
+    const scrollOffset = 300;
+    const selectedElement = event.currentTarget;
+    const selectedElementPos = selectedElement.offsetLeft;
+    const newPosition =
+      selectedElementPos > currentElementPos
+        ? currentElementPos + scrollOffset
+        : currentElementPos - scrollOffset;
+
+    selectedElement.parentElement.scrollTo({
+      top: 0,
+      left: newPosition,
+      behavior: "smooth",
+    });
+
+    setCurrentElementPos(newPosition);
+  };
+
+  return (
+    <div
+      onClick={(e) => {
+        setSelectedArtist(artist);
+        scrollToElement(e);
+      }}
+      className={`spotify-top__selector__item ${
+        selected ? "spotify-top__selector__item--selected" : ""
+      }`}
+    >
+      <img alt="artist" src={artist.images[0].url} />
+      <div className="spotify-top__selector__item__name">{artist.name}</div>
+    </div>
+  );
+};
 
 const SelectedArtist = ({ artist }: { artist: Artist }) => {
   return (
     <div className="spotify-top__selected">
       <div className="spotify-top__selected__name">{artist.name}</div>
       <div className="spotify-top__selected__details">
-        {artist.genres && (
+        {artist.genres && artist.genres.length > 0  && (
           <>
             <div className="spotify-top__selected__genres">
-              <div>Genres: </div>
+              <div className="spotify-top__selected__genres__title">Genres: </div>
               {artist.genres.map((genre, index) => (
                 <span key={index}> {genre} </span>
               ))}
@@ -73,11 +121,13 @@ const SelectedArtist = ({ artist }: { artist: Artist }) => {
           </>
         )}
         <div className="spotify-top__selected__popularity">
+          <div className="spotify-top__selected__popularity__number-container">
+            <div className="spotify-top__selected__popularity__number">
+              {artist.popularity}
+            </div>
+          </div>
           <div className="spotify-top__selected__popularity__title">
             Popularity
-          </div>
-          <div className="spotify-top__selected__popularity__number">
-            {artist.popularity}
           </div>
         </div>
       </div>

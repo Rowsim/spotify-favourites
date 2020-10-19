@@ -5,46 +5,77 @@
   flex-direction: column;
   align-items: center;
 
+  ::-webkit-scrollbar {
+    height: 2px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(33, 33, 33, 0.17);
+    border-radius: 4px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #fd500098;
+    border-radius: 4px;
+  }
+
   &__title {
     width: fit-content;
-    padding: 0 20px;
+    padding: 0 15px;
     color: white;
-    background: #fd5200;
-    border-radius: 2px;
+    background: black;
+    border: 2px solid #fd5200;
     font-family: "Permanent Marker", cursive;
-    font-size: 50px;
-    transform: rotate(1.5deg);
+    font-size: 60px;
+    transform: rotate(1deg);
     margin-bottom: 40px;
   }
 
   &__selector {
+    width: 60%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    overflow-x: scroll;
+    position: relative;
     margin-bottom: 50px;
 
     &__item {
-      font-size: 24px;
       display: flex;
-      flex: 0 1 calc(25% - 30px);
       flex-direction: column;
       align-items: center;
-      margin-right: 30px;
-      margin: 0 30px 30px 0;
+      font-size: 14px;
+      margin-bottom: 4px;
 
-      &--selected {
-        color: #fd5200;
-
+      &:hover {
         img {
-          border: 2px solid #fd5200;
+          opacity: 0.7;
         }
+      }
+
+      &__name {
+        background: black;
+        padding: 0 1px;
+        color: white;
       }
 
       img {
         width: 125px;
         height: 125px;
-        border-radius: 2px;
         margin-bottom: 10px;
+      }
+
+      &--selected {
+        .spotify-top__selector__item__name {
+          display: none;
+        }
+        margin-right: 1px;
+
+        img {
+          width: 145px;
+          height: 145px;
+          border: 4px solid #fd5200;
+        }
       }
     }
   }
@@ -53,40 +84,65 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
 
     &__name {
-      font-size: 46px;
+      font-size: 60px;
       text-decoration: underline;
       color: #fd5200;
+      background: black;
       font-weight: 500;
+      padding: 0 4px;
       margin-bottom: 20px;
     }
 
     &__details {
-      width: 100%;
-      max-width: 50%;
       display: flex;
-      justify-content: space-around;
+      width: 100%;
+      justify-content: space-between;
     }
 
     &__genres {
       display: flex;
       flex-direction: column;
-      font-size: 24px;
+      font-size: 18px;
+      background: #fd5200;
+      border-radius: 2px;
+      text-align: center;
+      margin-right: 30px;
+
+      &__title {
+        background: black;
+        color: white;
+      }
     }
 
     &__popularity {
-      font-size: 34px;
+      font-size: 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
 
       &__title {
+        padding: 0 10px;
+        color: white;
+        background: #fd5200;
+        border-radius: 2px;
+        font-family: "Permanent Marker", cursive;
       }
 
       &__number {
         font-weight: 500;
+      }
+
+      &__number-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        border: 2px solid #fd5200;
+        border-radius: 50px;
+        margin-bottom: 8px;
       }
     }
   }

@@ -6,11 +6,11 @@ const spotifyToken = localStorage.getItem("spotifyToken") || "";
 
 export const getUserTopArtists = async (
   timeRange: string,
-  limit: number
+  limit?: number
 ): Promise<UserTopArtists> => {
   console.log(`GET: ${SPOTIFY_API_URL}/me/top/artists?time_range=${timeRange}&limit=${limit}`);
   const userTopArtistsResults = await fetch(
-    `${SPOTIFY_API_URL}/me/top/artists?time_range=${timeRange}&limit=${limit}`,
+    `${SPOTIFY_API_URL}/me/top/artists?time_range=${timeRange}${limit ? `&limit=${limit}` : ''}`,
     {
       method: "GET",
       headers: {
