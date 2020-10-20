@@ -35,7 +35,6 @@ const SpotifyTopArtists = () => {
     <div className="spotify-top">
       <div className="spotify-top__title">Your top artists</div>
       <div className="spotify-top__scroll-buttons"></div>
-
       <div className="spotify-top__selector-container">
         <div
           className="spotify-top__selector-container__scroll"
@@ -43,7 +42,6 @@ const SpotifyTopArtists = () => {
         >
           {"<"}
         </div>
-
         <div className="spotify-top__selector">
           {artists &&
             artists.map((artist, index) => (
@@ -121,30 +119,23 @@ const ArtistSelector = ({
 const SelectedArtist = ({ artist }: { artist: Artist }) => {
   return (
     <div className="spotify-top__selected">
-      <div className="spotify-top__selected__name">{artist.name}</div>
+      <div className="spotify-top__selected__title">
+        <div className="spotify-top__selected__title__name">{artist.name} </div>
+        <div className="spotify-top__selected__title__popularity">
+          <div>{artist.popularity}</div>
+        </div>
+      </div>
       <div className="spotify-top__selected__details">
         {artist.genres && artist.genres.length > 0 && (
           <>
             <div className="spotify-top__selected__genres">
-              <div className="spotify-top__selected__genres__title">
-                Genres:{" "}
-              </div>
+              <div className="spotify-top__selected__genres__title">Genres</div>
               {artist.genres.map((genre, index) => (
                 <span key={index}> {genre} </span>
               ))}
             </div>
           </>
         )}
-        <div className="spotify-top__selected__popularity">
-          <div className="spotify-top__selected__popularity__number-container">
-            <div className="spotify-top__selected__popularity__number">
-              {artist.popularity}
-            </div>
-          </div>
-          <div className="spotify-top__selected__popularity__title">
-            Popularity
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 
+$spotify-black: #191414;
+$orange-c: #fd6500;
+
 .spotify-top {
+  animation: 1.2s ease 0s 1 slideInFromTop;
+
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -24,14 +29,9 @@
   }
 
   &__title {
-    width: fit-content;
-    padding: 0 15px;
-    color: white;
-    background: black;
-    border: 2px solid #fd5200;
+    color: $spotify-black;
     font-family: "Permanent Marker", cursive;
     font-size: 60px;
-    transform: rotate(1deg);
     margin: 40px 0;
   }
 
@@ -45,7 +45,8 @@
       width: 85px;
       font-size: 26px;
       margin: 0 10px;
-      background: #fd5200;
+      background: $spotify-black;
+      color: $orange-c;
       border-radius: 50px;
       text-align: center;
       cursor: pointer;
@@ -83,7 +84,7 @@
       }
 
       &__name {
-        background: black;
+        background: $spotify-black;
         padding: 0 1px;
         color: white;
       }
@@ -92,6 +93,9 @@
         width: 125px;
         height: 125px;
         margin-bottom: 10px;
+
+        transition: height 0.4s, width 0.4s ease;
+        -webkit-transition: height 0.4s, width 0.4s ease;
       }
 
       &--selected {
@@ -103,7 +107,7 @@
         img {
           width: 145px;
           height: 145px;
-          border: 4px solid #fd5200;
+          border: 4px solid $orange-c;
         }
       }
     }
@@ -114,14 +118,32 @@
     flex-direction: column;
     align-items: center;
 
-    &__name {
-      font-size: 60px;
-      text-decoration: underline;
-      color: #fd5200;
-      background: black;
-      font-weight: 500;
-      padding: 0 4px;
+    &__title {
+      display: flex;
+      align-items: center;
       margin-bottom: 20px;
+      font-weight: 500;
+
+      &__name {
+        font-size: 60px;
+        text-decoration: underline;
+        color: $orange-c;
+        background: $spotify-black;
+        padding: 0 4px;
+        margin-right: 10px;
+      }
+
+      &__popularity {
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: 100%;
+        padding: 0 4px;
+        border: 2px solid $orange-c;
+        background: $orange-c;
+      }
     }
 
     &__details {
@@ -134,44 +156,15 @@
       display: flex;
       flex-direction: column;
       font-size: 18px;
-      background: #fd5200;
+      background: $orange-c;
       border-radius: 2px;
       text-align: center;
       margin-right: 30px;
 
       &__title {
-        background: black;
+        background: $spotify-black;
         color: white;
-      }
-    }
-
-    &__popularity {
-      font-size: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      &__title {
-        padding: 0 10px;
-        color: white;
-        background: #fd5200;
-        border-radius: 2px;
-        font-family: "Permanent Marker", cursive;
-      }
-
-      &__number {
-        font-weight: 500;
-      }
-
-      &__number-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 45px;
-        height: 45px;
-        border: 2px solid #fd5200;
-        border-radius: 50px;
-        margin-bottom: 8px;
+        padding: 0 20px;
       }
     }
   }
