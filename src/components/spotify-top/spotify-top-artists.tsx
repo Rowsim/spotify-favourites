@@ -34,24 +34,37 @@ const SpotifyTopArtists = () => {
   return (
     <div className="spotify-top">
       <div className="spotify-top__title">Your top artists</div>
-      <div className="spotify-top__scroll-buttons">
-        <button onClick={() => scrollSelector(true)}>Left</button>
-        <button onClick={() => scrollSelector(false)}>Right</button>
+      <div className="spotify-top__scroll-buttons"></div>
+
+      <div className="spotify-top__selector-container">
+        <div
+          className="spotify-top__selector-container__scroll"
+          onClick={() => scrollSelector(true)}
+        >
+          {"<"}
+        </div>
+
+        <div className="spotify-top__selector">
+          {artists &&
+            artists.map((artist, index) => (
+              <ArtistSelector
+                artist={artist}
+                selected={artist === selectedArtist}
+                setSelectedArtist={setSelectedArtist}
+                setCurrentElementPos={setCurrentElementPos}
+                currentElementPos={currentElementPos}
+                key={index}
+              />
+            ))}
+        </div>
+        <div
+          className="spotify-top__selector-container__scroll"
+          onClick={() => scrollSelector(false)}
+        >
+          {">"}
+        </div>
       </div>
 
-      <div className="spotify-top__selector">
-        {artists &&
-          artists.map((artist, index) => (
-            <ArtistSelector
-              artist={artist}
-              selected={artist === selectedArtist}
-              setSelectedArtist={setSelectedArtist}
-              setCurrentElementPos={setCurrentElementPos}
-              currentElementPos={currentElementPos}
-              key={index}
-            />
-          ))}
-      </div>
       {selectedArtist && <SelectedArtist artist={selectedArtist} />}
     </div>
   );
@@ -110,10 +123,12 @@ const SelectedArtist = ({ artist }: { artist: Artist }) => {
     <div className="spotify-top__selected">
       <div className="spotify-top__selected__name">{artist.name}</div>
       <div className="spotify-top__selected__details">
-        {artist.genres && artist.genres.length > 0  && (
+        {artist.genres && artist.genres.length > 0 && (
           <>
             <div className="spotify-top__selected__genres">
-              <div className="spotify-top__selected__genres__title">Genres: </div>
+              <div className="spotify-top__selected__genres__title">
+                Genres:{" "}
+              </div>
               {artist.genres.map((genre, index) => (
                 <span key={index}> {genre} </span>
               ))}
