@@ -1,0 +1,32 @@
+.time-range {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px;
+  font-weight: 500;
+  color: #191414;
+
+  @media only screen and (max-width: 425px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__item {
+    margin: 0 8px;
+    cursor: pointer;
+    border: 1px solid #fd6500;
+    padding: 1px 2px;
+
+    &--selected {
+      background: #fd6500;
+    }
+
+    &:hover {
+      background: #fd6500;
+      color: white;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+}
