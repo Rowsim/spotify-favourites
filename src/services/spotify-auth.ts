@@ -32,7 +32,7 @@ export const spotifyAuthRequestUri = async () => {
 export const getUserAccessToken = async (
   authCode: string,
   stateResponse: string
-): Promise<UserToken> => {
+): Promise<boolean> => {
   const stateCode = localStorage.getItem("stateCode");
   console.log(`origin state: ${stateCode}`);
   if (stateCode === stateResponse) {
@@ -55,10 +55,20 @@ export const getUserAccessToken = async (
       }
     );
 
-    return spotifyTokens.json();
+    spotifyTokens.json().then((tokens: UserToken) => {
+      if (tokens && tokens.access_token) {
+        localStorage.setItem("spotifyToken", tokens.access_token);
+
+        if (tokens.refresh_token) {
+          localStorage.setItem("spotifyRefreshToken", tokens.refresh_token);
+        }
+
+        return true;
+      }
+    });
   }
 
-  return {};
+  return false;
 };
 
 interface UserToken {
