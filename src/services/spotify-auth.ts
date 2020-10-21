@@ -4,7 +4,7 @@ const cryptoRandomString = require("crypto-random-string");
 const sha256 = require("crypto-js/sha256");
 const Base64 = require("crypto-js/enc-base64");
 
-//env variables?
+//TODO need to change these env variables - callback url will differ
 const CLIENT_ID = "a3c9a895bbe94102a08574ba4f4adc9e";
 const REDIRECT_URI = "http://localhost:3000/callback";
 const SCOPES =
