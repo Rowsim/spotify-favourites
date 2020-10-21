@@ -16,6 +16,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: $spotify-black;
+
+  
+  @media only screen and (min-width: 425px) {
+    overflow-y: hidden;
+  }
 }
 
 @keyframes slideInFromTop {
