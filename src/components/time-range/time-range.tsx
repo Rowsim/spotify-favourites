@@ -10,14 +10,21 @@ export const TimeRange = ({
   selectedTimeRange,
   setSelectedTimeRange,
 }: TimeRangeProps) => {
-/*   const setTest = (timeRange: string) => {
+  const handleClick = (timeRange: string) => {
+    const spotifyTopElement = document.querySelector(
+      ".spotify-top"
+    ) as HTMLDivElement;
+    spotifyTopElement.style.opacity = "0.2";
     setSelectedTimeRange(timeRange);
+    setTimeout(() => {
+      spotifyTopElement.style.opacity = "1";
+    }, 500);
   };
- */
+
   return (
     <div className="time-range">
       <div
-        onClick={() => setSelectedTimeRange("short")}
+        onClick={() => handleClick("short")}
         className={`time-range__item ${
           selectedTimeRange === "short" ? "time-range__item--selected" : ""
         }`}
@@ -25,7 +32,7 @@ export const TimeRange = ({
         Short
       </div>
       <div
-        onClick={() => setSelectedTimeRange("medium")}
+        onClick={() => handleClick("medium")}
         className={`time-range__item ${
           selectedTimeRange === "medium" ? "time-range__item--selected" : ""
         }`}
@@ -33,7 +40,7 @@ export const TimeRange = ({
         Medium
       </div>
       <div
-        onClick={() => setSelectedTimeRange("long")}
+        onClick={() => handleClick("long")}
         className={`time-range__item ${
           selectedTimeRange === "long" ? "time-range__item--selected" : ""
         }`}

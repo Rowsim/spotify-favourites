@@ -1,7 +1,6 @@
+@import "../../styles/globals.scss";
+@import "../../styles/animations.scss";
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
-
-$spotify-black: #191414;
-$orange-c: #fd6500;
 
 .spotify-top {
   animation: 1.2s ease 0s 1 slideInFromTop;
@@ -10,7 +9,6 @@ $orange-c: #fd6500;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #e8e8e8;
 
   ::-webkit-scrollbar {
     height: 2px;
@@ -29,7 +27,7 @@ $orange-c: #fd6500;
   }
 
   &__title {
-    color: $spotify-black;
+    color: $white-c;
     font-family: "Permanent Marker", cursive;
     font-size: 60px;
     margin: 40px 0;
@@ -45,7 +43,6 @@ $orange-c: #fd6500;
       width: 85px;
       font-size: 26px;
       margin: 0 10px;
-      background: $spotify-black;
       color: $orange-c;
       border-radius: 50px;
       text-align: center;
@@ -85,9 +82,7 @@ $orange-c: #fd6500;
       }
 
       &__name {
-        background: $spotify-black;
-        padding: 0 1px;
-        color: white;
+        color: $white-c;
       }
 
       img {
@@ -129,7 +124,6 @@ $orange-c: #fd6500;
         font-size: 60px;
         text-decoration: underline;
         color: $orange-c;
-        background: $spotify-black;
         padding: 0 4px;
         margin-right: 10px;
       }
@@ -142,7 +136,7 @@ $orange-c: #fd6500;
         width: auto;
         height: 100%;
         padding: 0 4px;
-        border: 2px solid $orange-c;
+        color: $white-c;
         background: $orange-c;
       }
     }
@@ -164,6 +158,7 @@ $orange-c: #fd6500;
 
       &__title {
         background: $spotify-black;
+        border: 1px solid $orange-c;
         color: white;
         padding: 0 20px;
       }

@@ -1,4 +1,4 @@
-import React, { Ref, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getUserTopArtists } from "../../services/spotify-service";
 import { Artist } from "../../services/spotify-types";
 import "./spotify-top.scss";
@@ -37,7 +37,7 @@ const SpotifyTopArtists = ({ timeRange }: SpotifyTopArtistsProps) => {
   }, [timeRange]);
 
   return (
-    <div className="spotify-top">
+    <div className="spotify-top fade-in">
       <div className="spotify-top__title">Your top artists</div>
       <div className="spotify-top__scroll-buttons"></div>
       <div className="spotify-top__selector-container">
@@ -47,7 +47,7 @@ const SpotifyTopArtists = ({ timeRange }: SpotifyTopArtistsProps) => {
         >
           {"<"}
         </div>
-        <div className="spotify-top__selector">
+        <div className="spotify-top__selector fade-in">
           {artists &&
             artists.map((artist, index) => (
               <ArtistSelector
@@ -90,6 +90,7 @@ const ArtistSelector = ({
     //TODO Remove this function..
     const scrollOffset = 300;
     const selectedElement = event.currentTarget;
+    selectedElement.style.opacity = selectedElement.style.opacity === "0" ? "1" : "0";
     const selectedElementPos = selectedElement.offsetLeft;
     const newPosition =
       selectedElementPos > currentElementPos
@@ -111,7 +112,7 @@ const ArtistSelector = ({
         setSelectedArtist(artist);
         scrollToElement(e);
       }}
-      className={`spotify-top__selector__item ${
+      className={`spotify-top__selector__item fade-in ${
         selected ? "spotify-top__selector__item--selected" : ""
       }`}
     >

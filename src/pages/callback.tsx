@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
-import { getUserAccessToken } from "../services/spotify-auth";
+import { getUserAccessToken, GrantType } from "../services/spotify-auth";
 const queryString = require("query-string");
 
 const CallbackPage = () => {
@@ -11,9 +11,14 @@ const CallbackPage = () => {
     const queryParams = queryString.parse(location.search);
 
     if (queryParams.code && queryParams.state) {
-      getUserAccessToken(queryParams.code, queryParams.state).then((success) =>
-        setSuccessfulSignIn(success)
-      );
+      getUserAccessToken(
+        GrantType.AUTH,
+        queryParams.state,
+        queryParams.code
+      ).then((success) => {
+        console.log(success);
+        setSuccessfulSignIn(success);
+      });
     }
   });
 
