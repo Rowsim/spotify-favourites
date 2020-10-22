@@ -15,7 +15,7 @@ jobs:
       - name: Install and Build
         run: |
           npm install
-          npm run-script build
+          CI=false npm run-script build
         env:
           AUTH_REDIRECT_URI: https://rowsim.github.io/callback
 
