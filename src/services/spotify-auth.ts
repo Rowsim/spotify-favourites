@@ -4,11 +4,10 @@ const cryptoRandomString = require("crypto-random-string");
 const sha256 = require("crypto-js/sha256");
 const Base64 = require("crypto-js/enc-base64");
 
-//TODO need to change these env variables - callback url will differ
+const REDIRECT_URI =
+  process.env.AUTH_REDIRECT_URI || "http://localhost:3000/callback";
 const CLIENT_ID = "a3c9a895bbe94102a08574ba4f4adc9e";
-const REDIRECT_URI = "http://localhost:3000/callback";
-const SCOPES =
-  "user-top-read,streaming,user-read-recently-played,user-read-playback-state,user-library-read,user-read-currently-playing,user-modify-playback-state";
+const REQUEST_SCOPES = "user-top-read";
 
 export enum GrantType {
   AUTH = "authorization_code",
@@ -24,7 +23,7 @@ export const spotifyAuthRequestUri = async () => {
   const stateCode = cryptoRandomString({ length: 10, type: "url-safe" });
   localStorage.setItem("stateCode", stateCode);
 
-  return `https://accounts.spotify.com/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&code_challenge_method=S256&code_challenge=${challengeCode}&state=${stateCode}&scope=${SCOPES}`;
+  return `https://accounts.spotify.com/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&code_challenge_method=S256&code_challenge=${challengeCode}&state=${stateCode}&scope=${REQUEST_SCOPES}`;
 };
 
 export const checkSpotifyTokenAndRefresh = () => {
