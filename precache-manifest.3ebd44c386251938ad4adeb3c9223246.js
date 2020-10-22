@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4444758dcc46e00a37e4b029b92195e8",
+    "revision": "3e8296cc2dd9def57f0e2d40ecedcd7d",
     "url": "/spotify-favourites/index.html"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/spotify-favourites/static/css/7.d1a31d49.chunk.css"
   },
   {
-    "revision": "d2637d10ff59e9008988",
+    "revision": "0dc74e74c9b3f3d4fc10",
     "url": "/spotify-favourites/static/css/main.8b035d5b.chunk.css"
   },
   {
@@ -32,12 +32,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/spotify-favourites/static/js/3.574b56f2.chunk.js"
   },
   {
-    "revision": "09400cccb6472695fb5f",
-    "url": "/spotify-favourites/static/js/4.e7d71f64.chunk.js"
+    "revision": "f5da2939ca3295506da3",
+    "url": "/spotify-favourites/static/js/4.11c190e8.chunk.js"
   },
   {
     "revision": "9b318b6fb13190fe82c0677e9264b3c7",
-    "url": "/spotify-favourites/static/js/4.e7d71f64.chunk.js.LICENSE.txt"
+    "url": "/spotify-favourites/static/js/4.11c190e8.chunk.js.LICENSE.txt"
   },
   {
     "revision": "3ac7d85f07d61a1e7bda",
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/spotify-favourites/static/js/7.ccc9c9bf.chunk.js"
   },
   {
-    "revision": "d2637d10ff59e9008988",
-    "url": "/spotify-favourites/static/js/main.b4f01530.chunk.js"
+    "revision": "0dc74e74c9b3f3d4fc10",
+    "url": "/spotify-favourites/static/js/main.c28b705c.chunk.js"
   },
   {
     "revision": "85ac9c6ca26742ed7e3d",
