@@ -17,7 +17,7 @@ jobs:
           npm install
           CI=false npm run-script build
         env:
-          REACT_APP_AUTH_REDIRECT_URI: https://rowsim.github.io/callback
+          REACT_APP_AUTH_REDIRECT_URI: https://rowsim.github.io/spotify-favourites/callback
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.6.2
