@@ -1,2 +1,0 @@
-.time-range{display:flex;justify-content:flex-end;margin:8px;color:#fff}@media only screen and (max-width:425px){.time-range{flex-direction:column;align-items:flex-end}}.time-range__item{margin:0 8px;cursor:pointer;border:1px solid #fd6500;padding:4px 6px}.time-range__item--selected{background:#fd6500}.time-range__item:hover{background:#fd6500;color:#fff}.time-range__item:active{opacity:.6}
-/*# sourceMappingURL=7.8fbc112c.chunk.css.map */
