@@ -16,9 +16,8 @@ jobs:
         run: |
           npm install
           npm run-script build
-
         env:
-        AUTH_REDIRECT_URI: https://rowsim.github.io/callback
+          AUTH_REDIRECT_URI: https://rowsim.github.io/callback
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.6.2
