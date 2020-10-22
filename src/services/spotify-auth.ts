@@ -5,7 +5,7 @@ const sha256 = require("crypto-js/sha256");
 const Base64 = require("crypto-js/enc-base64");
 
 const REDIRECT_URI =
-  process.env.AUTH_REDIRECT_URI || "http://localhost:3000/callback";
+  process.env.REACT_APP_AUTH_REDIRECT_URI || "http://localhost:3000/callback";
 const CLIENT_ID = "a3c9a895bbe94102a08574ba4f4adc9e";
 const REQUEST_SCOPES = "user-top-read";
 
