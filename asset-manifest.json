@@ -3,8 +3,8 @@
     "static/js/0.c0eeed13.chunk.js": "/spotify-favourites/static/js/0.c0eeed13.chunk.js",
     "static/js/0.c0eeed13.chunk.js.map": "/spotify-favourites/static/js/0.c0eeed13.chunk.js.map",
     "main.css": "/spotify-favourites/static/css/main.8b035d5b.chunk.css",
-    "main.js": "/spotify-favourites/static/js/main.c28b705c.chunk.js",
-    "main.js.map": "/spotify-favourites/static/js/main.c28b705c.chunk.js.map",
+    "main.js": "/spotify-favourites/static/js/main.239d80e9.chunk.js",
+    "main.js.map": "/spotify-favourites/static/js/main.239d80e9.chunk.js.map",
     "runtime-main.js": "/spotify-favourites/static/js/runtime-main.084b36b1.js",
     "runtime-main.js.map": "/spotify-favourites/static/js/runtime-main.084b36b1.js.map",
     "static/js/3.574b56f2.chunk.js": "/spotify-favourites/static/js/3.574b56f2.chunk.js",
@@ -21,7 +21,7 @@
     "static/js/7.ccc9c9bf.chunk.js": "/spotify-favourites/static/js/7.ccc9c9bf.chunk.js",
     "static/js/7.ccc9c9bf.chunk.js.map": "/spotify-favourites/static/js/7.ccc9c9bf.chunk.js.map",
     "index.html": "/spotify-favourites/index.html",
-    "precache-manifest.3ebd44c386251938ad4adeb3c9223246.js": "/spotify-favourites/precache-manifest.3ebd44c386251938ad4adeb3c9223246.js",
+    "precache-manifest.7248d92ab03b59514d8514eb24404ed2.js": "/spotify-favourites/precache-manifest.7248d92ab03b59514d8514eb24404ed2.js",
     "service-worker.js": "/spotify-favourites/service-worker.js",
     "static/css/5.f2070d25.chunk.css.map": "/spotify-favourites/static/css/5.f2070d25.chunk.css.map",
     "static/css/6.3b78450a.chunk.css.map": "/spotify-favourites/static/css/6.3b78450a.chunk.css.map",
@@ -35,6 +35,6 @@
     "static/js/runtime-main.084b36b1.js",
     "static/js/4.11c190e8.chunk.js",
     "static/css/main.8b035d5b.chunk.css",
-    "static/js/main.c28b705c.chunk.js"
+    "static/js/main.239d80e9.chunk.js"
   ]
 }
