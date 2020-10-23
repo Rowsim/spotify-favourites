@@ -90,7 +90,6 @@ const ArtistSelector = ({
     //TODO Remove this function..
     const scrollOffset = 300;
     const selectedElement = event.currentTarget;
-    selectedElement.style.opacity = selectedElement.style.opacity === "0" ? "1" : "0";
     const selectedElementPos = selectedElement.offsetLeft;
     const newPosition =
       selectedElementPos > currentElementPos

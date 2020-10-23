@@ -95,10 +95,13 @@
       }
 
       &--selected {
+        margin-right: 1px;
+        pointer-events: none;
+        cursor: unset;
+
         .spotify-top__selector__item__name {
           display: none;
         }
-        margin-right: 1px;
 
         img {
           width: 145px;
