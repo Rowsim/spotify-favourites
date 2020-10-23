@@ -6,7 +6,7 @@ const CallbackPage = lazy(() => import("./pages/callback"));
 
 function App() {
   return (
-    <Router>
+    <Router basename="spotify-favourites">
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route exact path="/(|spotify-favourites)" component={HomePage} />
