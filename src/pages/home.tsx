@@ -1,4 +1,5 @@
-import React, { lazy, useEffect, useState } from "react";
+import React, { lazy, useContext, useEffect } from "react";
+import { AppContext } from "../AppContext";
 import { TimeRange } from "../components/time-range/time-range";
 import { getWithExpiry } from "../util/storage-util";
 
@@ -10,22 +11,18 @@ const SpotifyTopArtistsLazy = lazy(
 );
 
 const HomePage = () => {
-  const [hasSpotifyToken, setHasSpotifyToken] = useState(false);
-  const [selectedTimeRange, setSelectedTimeRange] = useState("medium");
+  const { hasSpotifyToken, setHasSpotifyToken } = useContext(AppContext);
 
   useEffect(() => {
     setHasSpotifyToken(getWithExpiry("spotifyToken") != null);
-  }, []);
+  }, [setHasSpotifyToken]);
 
   return (
     <>
       {hasSpotifyToken ? (
         <>
-          <TimeRange
-            selectedTimeRange={selectedTimeRange}
-            setSelectedTimeRange={setSelectedTimeRange}
-          />
-          <SpotifyTopArtistsLazy timeRange={selectedTimeRange} />
+          <TimeRange />
+          <SpotifyTopArtistsLazy />
         </>
       ) : (
         <SpotifySignInLazy />

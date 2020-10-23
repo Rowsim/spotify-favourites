@@ -1,15 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../AppContext";
 import "./time-range.scss";
 
-interface TimeRangeProps {
-  selectedTimeRange: string;
-  setSelectedTimeRange: Function;
-}
+export const TimeRange = () => {
+  const { selectedTimeRange, setSelectedTimeRange } = useContext(AppContext);
 
-export const TimeRange = ({
-  selectedTimeRange,
-  setSelectedTimeRange,
-}: TimeRangeProps) => {
   const handleClick = (timeRange: string) => {
     const spotifyTopElement = document.querySelector(
       ".spotify-top"

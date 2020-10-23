@@ -16,7 +16,6 @@ const CallbackPage = () => {
         queryParams.state,
         queryParams.code
       ).then((success) => {
-        console.log(success);
         setSuccessfulSignIn(success);
       });
     }

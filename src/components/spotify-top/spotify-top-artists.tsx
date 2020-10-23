@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AppContext } from "../../AppContext";
 import { getUserTopArtists } from "../../services/spotify-service";
 import { Artist } from "../../services/spotify-types";
 import "./spotify-top.scss";
 
-interface SpotifyTopArtistsProps {
-  timeRange: string;
-}
-
-const SpotifyTopArtists = ({ timeRange }: SpotifyTopArtistsProps) => {
+const SpotifyTopArtists = () => {
+  const { selectedTimeRange } = useContext(AppContext);
   const [artists, setArtists] = useState([] as Array<Artist>);
   const [selectedArtist, setSelectedArtist] = useState({} as Artist);
   const [currentElementPos, setCurrentElementPos] = useState(0);
@@ -25,7 +23,7 @@ const SpotifyTopArtists = ({ timeRange }: SpotifyTopArtistsProps) => {
   };
 
   useEffect(() => {
-    getUserTopArtists(`${timeRange}_term`).then((result) => {
+    getUserTopArtists(`${selectedTimeRange}_term`).then((result) => {
       setArtists(result.items);
       setSelectedArtist(result.items && result.items[0]);
       //TODO Scroll to start of selector
@@ -34,7 +32,7 @@ const SpotifyTopArtists = ({ timeRange }: SpotifyTopArtistsProps) => {
     /* const artists = getDummyArtists(); */
     /*     setArtists(artists);
     setSelectedArtist(artists[0]); */
-  }, [timeRange]);
+  }, [selectedTimeRange]);
 
   return (
     <div className="spotify-top fade-in">

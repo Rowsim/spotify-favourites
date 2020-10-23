@@ -9,9 +9,6 @@ export const getUserTopArtists = async (
 ): Promise<UserTopArtists> => {
   const spotifyToken = checkSpotifyTokenAndRefresh();
   if (spotifyToken) {
-    console.log(
-      `GET: ${SPOTIFY_API_URL}/me/top/artists?time_range=${timeRange}&limit=${limit}`
-    );
     const userTopArtistsResults = await fetch(
       `${SPOTIFY_API_URL}/me/top/artists?time_range=${timeRange}${
         limit ? `&limit=${limit}` : ""
