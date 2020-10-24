@@ -26,18 +26,15 @@
     border-radius: 4px;
   }
 
-  &__title {
-    color: $white-c;
-    font-family: "Permanent Marker", cursive;
-    font-size: 60px;
-    margin: 40px 0;
-  }
-
   &__selector-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60%;
+
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+    }
 
     &__scroll {
       width: 85px;

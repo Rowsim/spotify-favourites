@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "styled-components";
 import { AppContext } from "../../AppContext";
 import { getUserTopArtists } from "../../services/spotify-service";
 import { Artist } from "../../services/spotify-types";
+import { StyledTitle } from "../title/styled-title";
 import "./spotify-top.scss";
 
 const SpotifyTopArtists = () => {
@@ -36,7 +38,7 @@ const SpotifyTopArtists = () => {
 
   return (
     <div className="spotify-top fade-in">
-      <div className="spotify-top__title">Your top artists</div>
+      <StyledTitle fontSize="60px">Your top artists</StyledTitle>
       <div className="spotify-top__scroll-buttons"></div>
       <div className="spotify-top__selector-container">
         <div
