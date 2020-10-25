@@ -1,14 +1,16 @@
-@import "../../styles/globals.scss";
+@import "../../../styles/globals.scss";
 
 .time-range {
+  position: sticky;
   display: flex;
   justify-content: flex-end;
   margin: 8px;
   color: white;
 
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 768px) {
     flex-direction: column;
     align-items: flex-end;
+    margin: 0;
   }
 
   &__item {
@@ -16,6 +18,10 @@
     cursor: pointer;
     border: 1px solid $orange-c;
     padding: 4px 6px;
+
+    @media only screen and (max-width: 768px) {
+      margin: 0;
+    }
 
     &--selected {
       background: $orange-c;
