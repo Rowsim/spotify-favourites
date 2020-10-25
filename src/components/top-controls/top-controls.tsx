@@ -1,11 +1,17 @@
 import React from "react";
-import { FavouritesType } from "./favourites-type/favourites-type";
-import { TimeRange } from "./time-range/time-range";
-import "./top-controls.scss";
+import styled from "styled-components";
+import { FavouritesType } from "./favourites-options";
+import { TimeRange } from "./time-range";
 
 export const TopControls = () => (
-  <div className="top-controls">
+  <TopControlsContainer>
     <FavouritesType />
     <TimeRange />
-  </div>
+  </TopControlsContainer>
 );
+
+const TopControlsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
