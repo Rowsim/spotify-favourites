@@ -117,7 +117,7 @@
     &__title {
       display: flex;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 36px;
       font-weight: 500;
 
       &__name {
@@ -126,6 +126,10 @@
         color: $orange-c;
         padding: 0 4px;
         margin-right: 10px;
+
+        @media only screen and (max-width: 768px) {
+          font-size: 50px;
+        }
       }
 
       &__popularity {
@@ -138,29 +142,62 @@
         padding: 0 4px;
         color: $white-c;
         background: $orange-c;
+
+        @media only screen and (max-width: 768px) {
+          font-size: 35px;
+        }
       }
     }
 
     &__details {
       display: flex;
-      width: 100%;
-      justify-content: space-between;
+      justify-content: center;
+      font-size: 24px;
+
+      @media only screen and (max-width: 768px) {
+        font-size: 20px;
+        flex-direction: column-reverse;
+      }
     }
 
     &__genres {
       display: flex;
       flex-direction: column;
-      font-size: 18px;
       background: $orange-c;
-      border-radius: 2px;
       text-align: center;
-      margin-right: 30px;
+      margin-right: 40px;
+      border-radius: 2px;
+
+      @media only screen and (max-width: 768px) {
+        margin: 0;
+      }
 
       &__title {
         background: $spotify-black;
-        border: 1px solid $orange-c;
-        color: white;
+        border-top: 3px solid $orange-c;
+        color: $white-c;
         padding: 0 20px;
+      }
+    }
+
+    &__followers {
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+      border-top: 3px solid $orange-c;
+      border-radius: 1px;
+      text-align: center;
+      margin-left: 40px;
+      background: $orange-c;
+
+      @media only screen and (max-width: 768px) {
+        margin: 0;
+      }
+
+      &__title {
+        background: $spotify-black;
+        color: $white-c;
+        padding: 0 10px;
       }
     }
   }

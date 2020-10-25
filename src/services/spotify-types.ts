@@ -3,6 +3,7 @@ export interface Artist {
   href: string;
   name: string;
   popularity: number;
+  followers: followers;
   genres: Array<string>;
   images: Array<Image>;
 }
@@ -35,4 +36,8 @@ interface Image {
   url: string;
   height: number;
   width: number;
+}
+
+interface followers {
+  total: number;
 }

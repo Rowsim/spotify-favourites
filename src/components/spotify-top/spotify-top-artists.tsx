@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "styled-components";
 import { AppContext } from "../../AppContext";
 import { getUserTopArtists } from "../../services/spotify-service";
 import { Artist } from "../../services/spotify-types";
@@ -132,14 +131,18 @@ const SelectedArtist = ({ artist }: { artist: Artist }) => {
       </div>
       <div className="spotify-top__selected__details">
         {artist.genres && artist.genres.length > 0 && (
-          <>
-            <div className="spotify-top__selected__genres">
-              <div className="spotify-top__selected__genres__title">Genres</div>
-              {artist.genres.map((genre, index) => (
-                <span key={index}> {genre} </span>
-              ))}
-            </div>
-          </>
+          <div className="spotify-top__selected__genres">
+            <div className="spotify-top__selected__genres__title">Genres</div>
+            {artist.genres.map((genre, index) => (
+              <span key={index}>{genre}</span>
+            ))}
+          </div>
+        )}
+        {artist.followers && (
+          <div className="spotify-top__selected__followers">
+            <div className="spotify-top__selected__followers__title">Followers</div>
+            <div>{artist.followers.total}</div>
+          </div>
         )}
       </div>
     </div>
