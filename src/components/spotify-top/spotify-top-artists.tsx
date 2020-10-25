@@ -85,7 +85,7 @@ const ArtistSelector = ({
   setCurrentElementPos: Function;
   currentElementPos: number;
 }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  /*
   const scrollToElement = (event: any) => {
     //TODO Remove this function/think about how it could work better..
     const scrollOffset = 300;
@@ -104,6 +104,7 @@ const ArtistSelector = ({
 
     setCurrentElementPos(newPosition);
   };
+  */
 
   return (
     <div
@@ -145,7 +146,9 @@ const SelectedArtist = ({ artist }: { artist: Artist }) => {
             <div className="spotify-top__selected__info-tile__title">
               Followers
             </div>
-            <div>{artist.followers.total}</div>
+            <div>
+              {Intl.NumberFormat("en-us").format(artist.followers.total)}
+            </div>
           </div>
         )}
       </div>
