@@ -10,22 +10,6 @@
   flex-direction: column;
   align-items: center;
 
-  ::-webkit-scrollbar {
-    height: 2px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px rgba(33, 33, 33, 0.17);
-    border-radius: 4px;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #fd500098;
-    border-radius: 4px;
-  }
-
   &__selector-container {
     display: flex;
     justify-content: center;
@@ -34,6 +18,27 @@
 
     @media only screen and (max-width: 768px) {
       width: 100%;
+    }
+
+    /*Scroll bar settings*/
+    scrollbar-color: #fd50007b rgba(33, 33, 33, 0.17);
+    scrollbar-width: thin;
+    ::-webkit-scrollbar {
+      height: 3px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px rgba(33, 33, 33, 0.17);
+      border-radius: 2px;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #fd500098;
+      border-radius: 2px;
+
+      &:hover {
+        background: #fd5000d4;
+      }
     }
 
     &__scroll {
@@ -152,7 +157,7 @@
     &__details {
       display: flex;
       justify-content: center;
-      font-size: 24px;
+      font-size: 23px;
 
       @media only screen and (max-width: 768px) {
         font-size: 20px;
@@ -160,16 +165,24 @@
       }
     }
 
-    &__genres {
+    &__info-tile {
       display: flex;
       flex-direction: column;
       background: $orange-c;
       text-align: center;
-      margin-right: 40px;
       border-radius: 2px;
+      height: fit-content;
+
+      &:first-child {
+        margin-right: 40px;
+      }
 
       @media only screen and (max-width: 768px) {
         margin: 0;
+
+        &:first-child {
+          margin: 0;
+        }
       }
 
       &__title {
@@ -177,27 +190,6 @@
         border-top: 3px solid $orange-c;
         color: $white-c;
         padding: 0 20px;
-      }
-    }
-
-    &__followers {
-      display: flex;
-      flex-direction: column;
-      height: fit-content;
-      border-top: 3px solid $orange-c;
-      border-radius: 1px;
-      text-align: center;
-      margin-left: 40px;
-      background: $orange-c;
-
-      @media only screen and (max-width: 768px) {
-        margin: 0;
-      }
-
-      &__title {
-        background: $spotify-black;
-        color: $white-c;
-        padding: 0 10px;
       }
     }
   }

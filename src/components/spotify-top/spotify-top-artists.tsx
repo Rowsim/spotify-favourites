@@ -131,16 +131,18 @@ const SelectedArtist = ({ artist }: { artist: Artist }) => {
       </div>
       <div className="spotify-top__selected__details">
         {artist.genres && artist.genres.length > 0 && (
-          <div className="spotify-top__selected__genres">
-            <div className="spotify-top__selected__genres__title">Genres</div>
+          <div className="spotify-top__selected__info-tile">
+            <div className="spotify-top__selected__info-tile__title">
+              Genres
+            </div>
             {artist.genres.map((genre, index) => (
               <span key={index}>{genre}</span>
             ))}
           </div>
         )}
         {artist.followers && (
-          <div className="spotify-top__selected__followers">
-            <div className="spotify-top__selected__followers__title">
+          <div className="spotify-top__selected__info-tile">
+            <div className="spotify-top__selected__info-tile__title">
               Followers
             </div>
             <div>{artist.followers.total}</div>
