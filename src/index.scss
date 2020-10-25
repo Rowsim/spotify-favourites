@@ -6,6 +6,28 @@ body,
 #root {
   width: 100%;
   height: 100%;
+
+  /*Scroll bar settings*/
+  scrollbar-color: #fd50007b rgba(33, 33, 33, 0.17);
+  scrollbar-width: thin;
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 3px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(33, 33, 33, 0.823);
+    border-radius: 2px;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #fd500088;
+    border-radius: 2px;
+
+    &:hover {
+      background: #fd5000c7;
+    }
+  }
 }
 
 body {
@@ -16,9 +38,4 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: $spotify-black;
-
-  
-  @media only screen and (min-width: 768px) {
-    overflow-y: hidden;
-  }
 }

@@ -20,27 +20,6 @@
       width: 100%;
     }
 
-    /*Scroll bar settings*/
-    scrollbar-color: #fd50007b rgba(33, 33, 33, 0.17);
-    scrollbar-width: thin;
-    ::-webkit-scrollbar {
-      height: 3px;
-    }
-    /* Track */
-    ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px rgba(33, 33, 33, 0.17);
-      border-radius: 2px;
-    }
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #fd500098;
-      border-radius: 2px;
-
-      &:hover {
-        background: #fd5000d4;
-      }
-    }
-
     &__scroll {
       width: 85px;
       font-size: 26px;
