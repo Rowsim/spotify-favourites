@@ -85,8 +85,9 @@ const ArtistSelector = ({
   setCurrentElementPos: Function;
   currentElementPos: number;
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const scrollToElement = (event: any) => {
-    //TODO Remove this function..
+    //TODO Remove this function/think about how it could work better..
     const scrollOffset = 300;
     const selectedElement = event.currentTarget;
     const selectedElementPos = selectedElement.offsetLeft;
@@ -108,7 +109,6 @@ const ArtistSelector = ({
     <div
       onClick={(e) => {
         setSelectedArtist(artist);
-        scrollToElement(e);
       }}
       className={`spotify-top__selector__item fade-in ${
         selected ? "spotify-top__selector__item--selected" : ""
@@ -140,7 +140,9 @@ const SelectedArtist = ({ artist }: { artist: Artist }) => {
         )}
         {artist.followers && (
           <div className="spotify-top__selected__followers">
-            <div className="spotify-top__selected__followers__title">Followers</div>
+            <div className="spotify-top__selected__followers__title">
+              Followers
+            </div>
             <div>{artist.followers.total}</div>
           </div>
         )}
