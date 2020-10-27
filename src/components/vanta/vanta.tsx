@@ -5,7 +5,7 @@ import * as THREE from "three";
 // @ts-ignore
 import BIRDS from "vanta/dist/vanta.birds.min";
 
-export const VantaWrapper = ({ children }: any) => {
+const VantaWrapper = ({ children }: any) => {
   const [vantaEffect, setVantaEffect] = useState(0 as any);
   const vantaRef = useRef(null);
   const themeContext = useContext(ThemeContext);
@@ -46,3 +46,5 @@ const VantaContainer = styled.div`
     max-height: 30%;
   }
 `;
+
+export default VantaWrapper;

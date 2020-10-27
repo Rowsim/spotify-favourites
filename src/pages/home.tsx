@@ -1,11 +1,13 @@
 import React, { lazy, useContext, useEffect } from "react";
 import { AppContext } from "../AppContext";
-import { TopControls } from "../components/top-controls/top-controls";
 import { getWithExpiry } from "../util/storage-util";
-import { VantaWrapper } from "../components/vanta/vanta";
 
+const VantaWrapperLazy = lazy(() => import("../components/vanta/vanta"));
 const SpotifySignInLazy = lazy(
   () => import("../components/spotify-sign-in/spotify-sign-in")
+);
+const TopControlsLazy = lazy(
+  () => import("../components/top-controls/top-controls")
 );
 const SpotifyTopArtistsLazy = lazy(
   () => import("../components/spotify-top/spotify-top-artists")
@@ -18,16 +20,16 @@ const HomePage = () => {
   }, [setHasSpotifyToken]);
 
   return (
-    <VantaWrapper>
+    <>
       {hasSpotifyToken ? (
-        <>
-          <TopControls />
+        <VantaWrapperLazy>
+          <TopControlsLazy />
           <SpotifyTopArtistsLazy />
-        </>
+        </VantaWrapperLazy>
       ) : (
         <SpotifySignInLazy />
       )}
-    </VantaWrapper>
+    </>
   );
 };
 

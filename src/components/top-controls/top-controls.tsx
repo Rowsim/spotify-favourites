@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FavouritesType } from "./favourites-options";
 import { TimeRange } from "./time-range";
 
-export const TopControls = () => (
+const TopControls = () => (
   <TopControlsContainer>
     <FavouritesType />
     <TimeRange />
@@ -15,3 +15,5 @@ const TopControlsContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export default TopControls;

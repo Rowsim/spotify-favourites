@@ -87,7 +87,7 @@ const ArtistSelector = ({
 }) => {
   /*
   const scrollToElement = (event: any) => {
-    //TODO Remove this function/think about how it could work better..
+    //TODO Remove this function/think about how it could work better.
     const scrollOffset = 300;
     const selectedElement = event.currentTarget;
     const selectedElementPos = selectedElement.offsetLeft;
