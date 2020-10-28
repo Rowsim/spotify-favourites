@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledToggle = styled.div<{ selected?: boolean }>`
-  color: ${(props) => props.theme.primary};
+  color: ${(props) =>
+    props.selected ? props.theme.background : props.theme.primary};
   background: ${(props) =>
     props.selected ? props.theme.secondary : props.theme.background};
   border: 1px solid ${(props) => props.theme.secondary};

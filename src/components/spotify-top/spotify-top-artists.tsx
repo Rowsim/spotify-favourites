@@ -9,7 +9,6 @@ const SpotifyTopArtists = () => {
   const { selectedTimeRange } = useContext(AppContext);
   const [artists, setArtists] = useState([] as Array<Artist>);
   const [selectedArtist, setSelectedArtist] = useState({} as Artist);
-  const [currentElementPos, setCurrentElementPos] = useState(0);
 
   const scrollSelector = (left: boolean) => {
     const selectorElement = document.querySelector(
@@ -53,8 +52,6 @@ const SpotifyTopArtists = () => {
                 artist={artist}
                 selected={artist === selectedArtist}
                 setSelectedArtist={setSelectedArtist}
-                setCurrentElementPos={setCurrentElementPos}
-                currentElementPos={currentElementPos}
                 key={index}
               />
             ))}
@@ -76,36 +73,11 @@ const ArtistSelector = ({
   artist,
   selected,
   setSelectedArtist,
-  setCurrentElementPos,
-  currentElementPos,
 }: {
   artist: Artist;
   selected: boolean;
   setSelectedArtist: Function;
-  setCurrentElementPos: Function;
-  currentElementPos: number;
 }) => {
-  /*
-  const scrollToElement = (event: any) => {
-    //TODO Remove this function/think about how it could work better.
-    const scrollOffset = 300;
-    const selectedElement = event.currentTarget;
-    const selectedElementPos = selectedElement.offsetLeft;
-    const newPosition =
-      selectedElementPos > currentElementPos
-        ? currentElementPos + scrollOffset
-        : currentElementPos - scrollOffset;
-
-    selectedElement.parentElement.scrollTo({
-      top: 0,
-      left: newPosition,
-      behavior: "smooth",
-    });
-
-    setCurrentElementPos(newPosition);
-  };
-  */
-
   return (
     <div
       onClick={(e) => {
@@ -115,7 +87,12 @@ const ArtistSelector = ({
         selected ? "spotify-top__selector__item--selected" : ""
       }`}
     >
-      <img alt="artist" src={artist.images[0].url} />
+      <img
+        alt="artist"
+        width={150}
+        height={150}
+        src={artist.images ? artist.images[0].url : ""} //TODO Not found image and possibly use lower res spotify img
+      />
       <div className="spotify-top__selector__item__name">{artist.name}</div>
     </div>
   );

@@ -20,7 +20,7 @@ const VantaWrapper = ({ children }: any) => {
           color1: themeContext.secondary,
           color2: themeContext.background,
           wingSpan: 40.0,
-          speedLimit: 6.0,
+          speedLimit: 3.0,
           separation: 60.0,
           alignment: 5.0,
           quantity: 1.5,
