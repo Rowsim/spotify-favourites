@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ReactComponent as GirlMusicSvg } from "../../assets/images/girl-music.svg";
 
 export const StyledGirl = () => (
+  // Hopefully this is included in new build...
   <StyledGirlSvg>
     <GirlMusicSvg />
   </StyledGirlSvg>
