@@ -192,7 +192,6 @@
       width: 100%;
     }
 
-
     &__card {
       color: $spotify-black;
       height: 300px;
@@ -204,10 +203,38 @@
       flex-direction: column;
       align-items: center;
       position: relative;
+      cursor: pointer;
+      transition: border-right 0.1s ease, border-color 0.2s ease;
+
+      &:hover,
+      &:active {
+        border-right: 6px solid $spotify-green;
+
+        img {
+          border-radius: 3px 0 0 0;
+        }
+
+        .spotify-top__tracks__card__play {
+          border-top: 1px solid $spotify-green;
+          svg {
+            fill: $spotify-green;
+          }
+        }
+      }
+
+      &:active {
+        border-right: 6px solid $orange-c;
+        .spotify-top__tracks__card__play {
+          border-top: 1px solid $orange-c;
+          svg {
+            fill: $orange-c;
+          }
+        }
+      }
 
       @media only screen and (max-width: 425px) {
-       min-width: 200px;
-       margin: 24px 12px;
+        min-width: 200px;
+        margin: 24px 12px;
       }
 
       &__img {
@@ -280,19 +307,13 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
-
-        &:hover,
-        &:active {
-          border-top: 1px solid $spotify-green;
-          svg {
-            fill: $spotify-green;
-          }
-        }
+        transition: border-color 0.2s ease-in-out;
 
         svg {
           width: 28px;
           height: 28px;
           fill: $orange-c;
+          transition: fill 0.2s ease-in-out;
         }
       }
     }
