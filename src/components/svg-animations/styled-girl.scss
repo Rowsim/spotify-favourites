@@ -1,5 +1,9 @@
 svg {
-  height: 25vh;
+  height: 25vw;
+
+  @media only screen and (max-width: 768px) {
+    height: 50vw;
+  }
 
   &:hover {
     #note-1,
@@ -19,20 +23,48 @@ svg {
   fill: #1db954;
 }
 
+@keyframes fillcol {
+  0% {
+    fill: #1db954;
+  }
+  30% {
+    fill: #fd6500;
+  }
+  100% {
+    fill: #1db954;
+  }
+}
+
+@keyframes fillcol1 {
+  0% {
+    fill: #fd6500;
+  }
+  30% {
+    fill: #1db954;
+  }
+  100% {
+    fill: #fd6500;
+  }
+}
+
 #note-1 {
-  animation: note1 ease-in-out 0.6s infinite alternate;
+  animation: note1 0.6s ease-in-out infinite alternate,
+    fillcol1 4s ease-in-out infinite;
 }
 
 #note-2 {
-  animation: note2 ease-in-out 0.5s infinite alternate;
+  animation: note2 ease-in-out 0.5s infinite alternate,
+    fillcol 4s ease-in-out infinite;
 }
 
 #note-3 {
-  animation: note3 ease-in-out 0.5s infinite alternate;
+  animation: note3 ease-in-out 0.5s infinite alternate,
+    fillcol 4s ease-in-out infinite;
 }
 
 #note-4 {
-  animation: note4 ease-in-out 0.6s infinite alternate;
+  animation: note4 ease-in-out 0.6s infinite alternate,
+    fillcol1 4s ease-in-out reverse infinite;
 }
 
 #head {
