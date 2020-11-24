@@ -12,9 +12,14 @@ const TopControlsLazy = lazy(
 const SpotifyTopArtistsLazy = lazy(
   () => import("../components/spotify-top/spotify-top-artists")
 );
+const SpotifyTopTracksLazy = lazy(
+  () => import("../components/spotify-top/spotify-top-tracks")
+);
 
 const HomePage = () => {
-  const { hasSpotifyToken, setHasSpotifyToken } = useContext(AppContext);
+  const { hasSpotifyToken, setHasSpotifyToken, favouritesType } = useContext(
+    AppContext
+  );
   useEffect(() => {
     setHasSpotifyToken(getWithExpiry("spotifyToken") != null);
   }, [setHasSpotifyToken]);
@@ -24,7 +29,11 @@ const HomePage = () => {
       {hasSpotifyToken ? (
         <VantaWrapperLazy>
           <TopControlsLazy />
-          <SpotifyTopArtistsLazy />
+          {favouritesType === "tracks" ? (
+            <SpotifyTopTracksLazy />
+          ) : (
+            <SpotifyTopArtistsLazy />
+          )}
         </VantaWrapperLazy>
       ) : (
         <SpotifySignInLazy />

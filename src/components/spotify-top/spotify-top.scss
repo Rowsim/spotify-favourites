@@ -1,14 +1,20 @@
 @import "../../styles/globals.scss";
 @import "../../styles/animations.scss";
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 .spotify-top {
-  animation: 1.2s ease 0s 1 slideInFromTop;
-
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  &--artists {
+    animation: 1s ease 0s 1 slideInFromRight;
+  }
+
+  &--tracks {
+    animation: 1s ease 0s 1 slideInFromLeft;
+  }
 
   &__selector-container {
     display: flex;
@@ -168,6 +174,126 @@
         border-top: 3px solid $orange-c;
         color: $white-c;
         padding: 0 20px;
+      }
+    }
+  }
+
+  &__tracks {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70%;
+
+    @media only screen and (max-width: 425px) {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto;
+      width: 100%;
+    }
+
+
+    &__card {
+      color: $spotify-black;
+      height: 300px;
+      width: 200px;
+      margin: 24px 16px;
+      background: #f0f0f0;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      @media only screen and (max-width: 425px) {
+       min-width: 200px;
+       margin: 24px 12px;
+      }
+
+      &__img {
+        position: relative;
+        width: 100%;
+        height: 190px;
+        border-radius: 3px 3px 0 0;
+
+        img {
+          border-radius: inherit;
+          height: 100%;
+          width: 100%;
+        }
+
+        &__number {
+          position: absolute;
+          right: 2px;
+          top: 2px;
+          width: 24px;
+          height: 24px;
+          background: $spotify-black;
+          color: $orange-c;
+          border-radius: 0 2px 0 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+        }
+      }
+
+      &__title,
+      &__artists {
+        width: 92%;
+      }
+
+      &__title {
+        margin: 5px 0;
+        max-height: 45px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: bold;
+        font-size: 17px;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      &__artists {
+        clear: both;
+        overflow: hidden;
+        text-align: center;
+        max-height: 32px;
+        font-size: 12px;
+        font-style: italic;
+
+        &__name {
+          margin-left: 4px;
+          display: inline-block;
+        }
+      }
+
+      &__play {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-top: 1px solid $orange-c;
+        width: 100%;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+          border-top: 1px solid $spotify-green;
+          svg {
+            fill: $spotify-green;
+          }
+        }
+
+        svg {
+          width: 28px;
+          height: 28px;
+          fill: $orange-c;
+        }
       }
     }
   }

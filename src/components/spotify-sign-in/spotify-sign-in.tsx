@@ -18,7 +18,9 @@ const SpotifySignIn = () => {
         <img src={spotifyLogoSvg} alt="spotify-logo" />
       </a>
 
-      <StyledGirl />
+      <div className="girl-svg">
+        <StyledGirl />
+      </div>
     </StyledSpotifySignIn>
   );
 };

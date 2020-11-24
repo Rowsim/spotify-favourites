@@ -17,6 +17,7 @@ export interface Track {
   duration_ms: number;
   popularity: number;
   images: Array<Image>;
+  artists: Array<Artist>;
   album: Album;
 }
 
