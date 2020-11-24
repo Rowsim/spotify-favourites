@@ -12,6 +12,10 @@ const StyledGirlSvg = styled.div`
   svg {
     height: 25vh;
 
+    .fake-class {
+      width: 100%;
+    }
+
     &:hover {
       #note-1,
       #note-2,
