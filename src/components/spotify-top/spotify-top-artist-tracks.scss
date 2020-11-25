@@ -1,0 +1,128 @@
+@import "../../styles/globals.scss";
+
+.artist-top-tracks {
+  margin: 40px 0;
+  font-family: Montserrat, sans-serif;
+  width: 100%;
+  color: $light-grey;
+
+  &__title {
+    color: $white-c;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    padding: 5px 0;
+    border-top: 2px solid $orange-c;
+    border-bottom: 2px solid $orange-c;
+  }
+
+  &__card {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $orange-c;
+    transition: border-bottom 0.3s ease-in-out;
+
+    &:hover {
+      border-bottom: 2px solid $spotify-green;
+
+      .artist-top-tracks__card__info {
+        &__name,
+        &__artists {
+          color: $spotify-green;
+        }
+      }
+
+      .artist-top-tracks__card__play {
+        svg {
+          fill: $spotify-green;
+        }
+      }
+    }
+
+    &:active {
+      border-bottom: 2px solid $orange-c;
+
+      .artist-top-tracks__card__info {
+        &__name,
+        &__artists {
+          color: $orange-c;
+        }
+      }
+
+      .artist-top-tracks__card__play {
+        svg {
+          fill: $orange-c;
+        }
+      }
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      @media only screen and (max-width: 425px) {
+        padding-left: 8px;
+      }
+
+      &__name {
+        font-size: 20px;
+        margin-bottom: 2px;
+        transition: color 0.3s ease-in-out;
+
+        @media only screen and (max-width: 425px) {
+          font-size: 16px;
+        }
+      }
+
+      &__artists {
+        transition: color 0.3s ease-in-out;
+        font-size: 12px;
+        font-style: italic;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &__name {
+          display: inline;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    &__img {
+      position: relative;
+      width: 55px;
+      height: 55px;
+      margin-left: 20px;
+      padding: 2px 0;
+
+      img {
+        width: inherit;
+        height: inherit;
+        border-radius: 50%;
+      }
+    }
+
+    &__play {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+
+      svg {
+        transition: all 0.3s ease-in-out;
+        width: 22px;
+        height: 22px;
+        margin: auto;
+        fill: $orange-c;
+        opacity: 0.8;
+      }
+    }
+  }
+}

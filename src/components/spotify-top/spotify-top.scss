@@ -98,6 +98,19 @@
     }
   }
 
+  &__info {
+    max-width: 80%;
+
+    @media only screen and (min-width: 768px) {
+      min-width: 450px;
+      max-width: 600px;
+    }
+
+    @media only screen and (max-width: 425px) {
+      max-width: 95%;
+    }
+  }
+
   &__selected {
     display: flex;
     flex-direction: column;
@@ -129,7 +142,7 @@
         width: auto;
         height: 100%; //TODO Investigate height not filling container
         padding: 0 4px;
-        color: $white-c;
+        color: $spotify-black;
         background: $orange-c;
 
         @media only screen and (max-width: 768px) {
@@ -204,15 +217,12 @@
       align-items: center;
       position: relative;
       cursor: pointer;
-      transition: border-right 0.1s ease, border-color 0.2s ease;
+      border-left: 6px solid $orange-c;
+      transition: border-color 0.2s ease;
 
       &:hover,
       &:active {
-        border-right: 6px solid $spotify-green;
-
-        img {
-          border-radius: 3px 0 0 0;
-        }
+        border-left: 6px solid $spotify-green;
 
         .spotify-top__tracks__card__play {
           border-top: 1px solid $spotify-green;
@@ -223,7 +233,7 @@
       }
 
       &:active {
-        border-right: 6px solid $orange-c;
+        border-left: 6px solid $orange-c;
         .spotify-top__tracks__card__play {
           border-top: 1px solid $orange-c;
           svg {
@@ -241,7 +251,7 @@
         position: relative;
         width: 100%;
         height: 190px;
-        border-radius: 3px 3px 0 0;
+        border-radius: 0 3px 0 0;
 
         img {
           border-radius: inherit;

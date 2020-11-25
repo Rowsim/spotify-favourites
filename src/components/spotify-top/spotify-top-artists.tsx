@@ -3,6 +3,7 @@ import { AppContext } from "../../AppContext";
 import { getUserTopArtists } from "../../services/spotify-service";
 import { Artist } from "../../services/spotify-types";
 import { StyledTitle } from "../title/styled-title";
+import { SpotifyTopArtistsTracks } from "./spotify-top-artist-tracks";
 import "./spotify-top.scss";
 
 const SpotifyTopArtists = () => {
@@ -75,7 +76,12 @@ const SpotifyTopArtists = () => {
         </div>
       </div>
 
-      {selectedArtist && <SelectedArtist artist={selectedArtist} />}
+      {selectedArtist && (
+        <div className="spotify-top__info">
+          <SelectedArtist artist={selectedArtist} />
+          <SpotifyTopArtistsTracks artistId={selectedArtist.id} />
+        </div>
+      )}
     </div>
   );
 };
@@ -91,7 +97,7 @@ const ArtistSelector = ({
 }) => {
   return (
     <div
-      onClick={(e) => {
+      onClick={() => {
         setSelectedArtist(artist);
       }}
       className={`spotify-top__selector__item fade-in ${

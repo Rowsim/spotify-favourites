@@ -12,7 +12,7 @@ const SpotifyTopTracks = () => {
   const [prevSelectedTimeRange, saveSelectedTimeRange] = useState(
     selectedTimeRange
   );
-  
+
   useEffect(() => {
     saveSelectedTimeRange(selectedTimeRange);
 
@@ -41,7 +41,7 @@ const SpotifyTopTracks = () => {
 
 const TrackCard = ({ track, position }: TrackCardProps) => {
   const artistNames: string[] = getTrackArtistNames(track.artists);
-  const trackImageUrl: string = getTrackingImageUrl(track);
+  const trackImageUrl: string = getTrackImageUrl(track);
   const className = "spotify-top__tracks";
   return (
     <div className={`${className}__card`}>
@@ -78,18 +78,18 @@ const TrackCard = ({ track, position }: TrackCardProps) => {
   );
 };
 
-const getTrackingImageUrl = (track: Track) => {
-  if (!track.album || !track.album.images) return "";
-  return track.album.images[0].url;
+export const getTrackImageUrl = (track: Track, imageIndex = 0) => {
+  if (!track.album || !track.album.images || !track.album.images[imageIndex])
+    return "";
+  return track.album.images[imageIndex].url;
 };
 
-const getTrackArtistNames = (artists: Artist[]) => {
+export const getTrackArtistNames = (artists: Artist[], limit = 3) => {
   if (!artists) return [];
 
   const names: string[] = [];
   artists.forEach((artist, i) => {
-    if (i <= 3) names.push(artist.name);
-    if (i === 5) names.push("...");
+    if (i <= limit) names.push(artist.name);
   });
 
   return names;
