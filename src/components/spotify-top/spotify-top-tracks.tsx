@@ -32,7 +32,11 @@ const SpotifyTopTracks = () => {
       <div className="spotify-top__tracks">
         {topTracks &&
           topTracks.map((track, index) => (
-            <TrackCard key={track.id} track={track} position={index + 1} />
+            <TrackCard
+              key={track.id + index}
+              track={track}
+              position={index + 1}
+            />
           ))}
       </div>
     </div>
@@ -58,14 +62,14 @@ const TrackCard = ({ track, position }: TrackCardProps) => {
           if (i + 1 >= artistNames.length)
             return (
               <div
-                key={name + i}
+                key={i}
                 className={`${className}__card__artists__name`}
               >
                 {name}
               </div>
             );
           return (
-            <div key={name + i} className={`${className}__card__artists__name`}>
+            <div key={i} className={`${className}__card__artists__name`}>
               {`${name},`}
             </div>
           );

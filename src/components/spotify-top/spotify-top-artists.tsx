@@ -42,7 +42,6 @@ const SpotifyTopArtists = () => {
     }
 
     setSelectedArtist(topArtists && topArtists[0]);
-    console.log("here");
     //TODO Scroll to start of selector
   }, [prevSelectedTimeRange, selectedTimeRange, setTopArtists, topArtists]);
 

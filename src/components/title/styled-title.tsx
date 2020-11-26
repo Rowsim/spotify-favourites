@@ -5,6 +5,7 @@ export const StyledTitle = styled.h1<{ fontSize?: string }>`
   font-family: ${(props) => props.theme.fontAlt};
   color: ${(props) => props.theme.primary};
   cursor: default;
+  margin: 36px 0;
   transition: all 0.5s;
 
   @media only screen and (max-width: 768px) {

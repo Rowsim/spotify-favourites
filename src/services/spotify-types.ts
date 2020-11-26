@@ -21,7 +21,7 @@ export interface Track {
   album: Album;
 }
 
-interface Album {
+export interface Album {
   id: string;
   href: string;
   name: string;
@@ -30,6 +30,13 @@ interface Album {
   popularity: number;
   genres: Array<string>;
   artists: Array<Artist>;
+  images: Array<Image>;
+}
+
+export interface UserProfile {
+  display_name: string;
+  external_urls: { spotify: string };
+  followers: { total: number };
   images: Array<Image>;
 }
 

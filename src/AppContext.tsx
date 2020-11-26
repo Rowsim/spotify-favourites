@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { Artist, Track } from "./services/spotify-types";
+import { Artist, Track, UserProfile } from "./services/spotify-types";
 
 interface AppContextType {
   hasSpotifyToken: boolean;
@@ -12,6 +12,8 @@ interface AppContextType {
   setTopTracks: Function;
   topArtists: Array<Artist>;
   setTopArtists: Function;
+  userProfile: UserProfile;
+  setUserProfile: Function;
 }
 
 export const AppContext = createContext<AppContextType>({
@@ -25,6 +27,8 @@ export const AppContext = createContext<AppContextType>({
   setTopTracks: () => {},
   topArtists: [],
   setTopArtists: () => {},
+  userProfile: {} as UserProfile,
+  setUserProfile: () => {},
 });
 
 export const AppProvider = ({ children }: any) => {
@@ -33,6 +37,7 @@ export const AppProvider = ({ children }: any) => {
   const [selectedTimeRange, setSelectedTimeRange] = useState("medium");
   const [topTracks, setTopTracks] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
+  const [userProfile, setUserProfile] = useState({} as UserProfile);
 
   return (
     <AppContext.Provider
@@ -47,6 +52,8 @@ export const AppProvider = ({ children }: any) => {
         setTopTracks,
         topArtists,
         setTopArtists,
+        userProfile,
+        setUserProfile,
       }}
     >
       {children}

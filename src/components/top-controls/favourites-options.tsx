@@ -27,4 +27,5 @@ export const FavouritesType = () => {
 const FavouritesOptionsContainer = styled.div`
   display: flex;
   align-items: center;
+  max-height: 33px;
 `;

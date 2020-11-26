@@ -45,9 +45,11 @@ const TimeRangeContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   color: ${(props) => props.theme.primary};
+  max-height: 33px;
 
   @media only screen and (max-width: 768px) {
     flex-direction: column;
     align-items: flex-end;
+    max-height: unset;
   }
 `;

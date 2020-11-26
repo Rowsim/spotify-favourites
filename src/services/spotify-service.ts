@@ -1,5 +1,5 @@
 import { checkSpotifyTokenAndRefresh } from "./spotify-auth";
-import { Artist, Track } from "./spotify-types";
+import { Artist, Track, UserProfile } from "./spotify-types";
 
 const SPOTIFY_API_URL = "https://api.spotify.com/v1";
 
@@ -70,6 +70,23 @@ export const getArtistTopTracks = async (
     );
 
     return artistTopTracksResponse.json();
+  }
+
+  return Promise.reject("Invalid spotify auth token :(");
+};
+
+export const getUserProfile = async (): Promise<UserProfile> => {
+  const spotifyToken = checkSpotifyTokenAndRefresh();
+  if (spotifyToken) {
+    console.log(`GET ${SPOTIFY_API_URL}/me`);
+    const userProfileResponse = await fetch(` ${SPOTIFY_API_URL}/me`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${spotifyToken}`,
+      },
+    });
+
+    return userProfileResponse.json();
   }
 
   return Promise.reject("Invalid spotify auth token :(");

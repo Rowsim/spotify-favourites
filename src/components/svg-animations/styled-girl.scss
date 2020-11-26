@@ -1,5 +1,6 @@
 svg {
   height: 25vw;
+  max-height: 280px;
 
   @media only screen and (max-width: 768px) {
     height: 50vw;

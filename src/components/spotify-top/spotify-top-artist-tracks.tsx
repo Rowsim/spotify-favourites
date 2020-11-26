@@ -12,7 +12,6 @@ export const SpotifyTopArtistsTracks = ({ artistId }: { artistId: string }) => {
     if (artistId) {
       getArtistTopTracks(artistId).then((result) => {
         setTracks(result.tracks);
-        console.log(tracks);
       });
     }
   }, [artistId]);
@@ -23,7 +22,7 @@ export const SpotifyTopArtistsTracks = ({ artistId }: { artistId: string }) => {
         <div className="artist-top-tracks">
           <div className="artist-top-tracks__title">Top tracks</div>
           {tracks.map((track, i) => (
-            <TrackCard key={track.name + i} track={track} />
+            <TrackCard key={i} track={track} />
           ))}
         </div>
       )}
@@ -43,12 +42,18 @@ const TrackCard = ({ track }: { track: Track }) => {
             {artistNames.map((name, i) => {
               if (i + 1 === artistNames.length)
                 return (
-                  <div className="artist-top-tracks__card__info__artists__name">
+                  <div
+                    key={i}
+                    className="artist-top-tracks__card__info__artists__name"
+                  >
                     {name}
                   </div>
                 );
               return (
-                <div className="artist-top-tracks__card__info__artists__name">
+                <div
+                  key={i}
+                  className="artist-top-tracks__card__info__artists__name"
+                >
                   {name},
                 </div>
               );
