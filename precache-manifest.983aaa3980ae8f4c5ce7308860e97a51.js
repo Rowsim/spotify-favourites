@@ -1,22 +1,22 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e073f5d9fc6329753ed53a462b26fc71",
+    "revision": "aca8e98bb353344a38fc40b70024cf65",
     "url": "/spotify-favourites/index.html"
   },
   {
-    "revision": "8893d5ccf5e41357e192",
-    "url": "/spotify-favourites/static/css/1.d4d8046c.chunk.css"
+    "revision": "b66fb6cfab7bb603079d",
+    "url": "/spotify-favourites/static/css/1.51d665b6.chunk.css"
   },
   {
     "revision": "180439d053720d6339bc",
     "url": "/spotify-favourites/static/css/6.39f7b278.chunk.css"
   },
   {
-    "revision": "c7045441f27043d2c713",
+    "revision": "235dffb7545ecfca4697",
     "url": "/spotify-favourites/static/css/9.9aa357e2.chunk.css"
   },
   {
-    "revision": "8df8740cdbb27aeebb03",
+    "revision": "827665eff151e6233543",
     "url": "/spotify-favourites/static/css/main.a10913d3.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/spotify-favourites/static/js/0.c4dd1866.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8893d5ccf5e41357e192",
-    "url": "/spotify-favourites/static/js/1.d3847b5e.chunk.js"
+    "revision": "b66fb6cfab7bb603079d",
+    "url": "/spotify-favourites/static/js/1.7be3d085.chunk.js"
   },
   {
     "revision": "2fc631e125de60a85587",
@@ -64,16 +64,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/spotify-favourites/static/js/8.1a89eefb.chunk.js"
   },
   {
-    "revision": "c7045441f27043d2c713",
-    "url": "/spotify-favourites/static/js/9.c63ca2a6.chunk.js"
+    "revision": "235dffb7545ecfca4697",
+    "url": "/spotify-favourites/static/js/9.99f0326a.chunk.js"
   },
   {
-    "revision": "8df8740cdbb27aeebb03",
-    "url": "/spotify-favourites/static/js/main.f5ed2dde.chunk.js"
+    "revision": "827665eff151e6233543",
+    "url": "/spotify-favourites/static/js/main.6bba051f.chunk.js"
   },
   {
-    "revision": "4632b8d1adfdff57d15e",
-    "url": "/spotify-favourites/static/js/runtime-main.0469b0bc.js"
+    "revision": "301de32782b1abf8573a",
+    "url": "/spotify-favourites/static/js/runtime-main.3588c48f.js"
   },
   {
     "revision": "a1b46fe7e5450b617c0acffde346f1b4",
