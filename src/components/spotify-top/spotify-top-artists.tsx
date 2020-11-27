@@ -16,16 +16,21 @@ const SpotifyTopArtists = () => {
   );
   const [selectedArtist, setSelectedArtist] = useState({} as Artist);
 
-  const scrollSelector = (left: boolean) => {
+  const scrollSelector = (left: boolean, toStart?: boolean) => {
     const selectorElement = document.querySelector(
       ".spotify-top__selector"
     ) as HTMLDivElement;
-    const scrollAmount = selectorElement.offsetWidth * (1 - 0.05);
-    selectorElement.scrollBy({
-      top: 0,
-      left: left ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
+
+    if (toStart) {
+      selectorElement.scrollTo(0, 0);
+    } else {
+      const scrollAmount = selectorElement.offsetWidth * (1 - 0.05);
+      selectorElement.scrollBy({
+        top: 0,
+        left: left ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   useEffect(() => {
@@ -42,7 +47,7 @@ const SpotifyTopArtists = () => {
     }
 
     setSelectedArtist(topArtists && topArtists[0]);
-    //TODO Scroll to start of selector
+    scrollSelector(false, true);
   }, [prevSelectedTimeRange, selectedTimeRange, setTopArtists, topArtists]);
 
   return (
