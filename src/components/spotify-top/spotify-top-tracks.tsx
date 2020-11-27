@@ -45,7 +45,7 @@ const SpotifyTopTracks = () => {
 
 const TrackCard = ({ track, position }: TrackCardProps) => {
   const artistNames: string[] = getTrackArtistNames(track.artists);
-  const trackImageUrl: string = getTrackImageUrl(track);
+  const trackImageUrl: string = getTrackImageUrl(track, 1);
   const className = "spotify-top__tracks";
   return (
     <div className={`${className}__card`}>
@@ -53,6 +53,8 @@ const TrackCard = ({ track, position }: TrackCardProps) => {
         <img
           src={trackImageUrl ? trackImageUrl : notFoundImg}
           alt={track.name}
+          width="200"
+          height="190"
         />
         <div className={`${className}__card__img__number`}>{position}</div>
       </div>
@@ -61,10 +63,7 @@ const TrackCard = ({ track, position }: TrackCardProps) => {
         {artistNames.map((name, i) => {
           if (i + 1 >= artistNames.length)
             return (
-              <div
-                key={i}
-                className={`${className}__card__artists__name`}
-              >
+              <div key={i} className={`${className}__card__artists__name`}>
                 {name}
               </div>
             );

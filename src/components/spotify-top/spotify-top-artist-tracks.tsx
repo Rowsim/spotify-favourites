@@ -65,7 +65,7 @@ const TrackCard = ({ track }: { track: Track }) => {
         <div className="artist-top-tracks__card__play">
           <PlaySvg />
         </div>
-        <img src={imageUrl} alt="album-art" />
+        <img width="55" height="55" src={imageUrl} alt="album-art" />
       </div>
     </div>
   );

@@ -8,6 +8,20 @@ const HomePage = lazy(() => import("./pages/home"));
 const CallbackPage = lazy(() => import("./pages/callback"));
 
 function App() {
+  console.log(
+    `%c
+-----------------------------------------------
+-------------Spotify Favourites!---------------
+                    .
+                  \\ | /
+                '-.;;;.-'
+               -==;;;;;==-
+                .-';;;'-.
+                  / | \\
+                    '`,
+    "font-family:monospace; color: #fd6500"
+  );
+
   return (
     <Router basename="spotify-favourites">
       <Suspense fallback={<div>Loading...</div>}>
