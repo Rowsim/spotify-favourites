@@ -19,7 +19,7 @@ const SpotifyTopTracks = () => {
     if (
       !topTracks ||
       topTracks.length < 1 ||
-      prevSelectedTimeRange !== selectedTimeRange
+      prevSelectedTimeRange !== selectedTimeRange //todo bug here where you go from one component to another and change time ranges
     )
       getUserTopTracks(`${selectedTimeRange}_term`).then((result) => {
         setTopTracks(result.items);
