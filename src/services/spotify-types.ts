@@ -1,5 +1,6 @@
 export interface Artist {
   id: string;
+  uri: string;
   href: string;
   name: string;
   popularity: number;
@@ -10,6 +11,7 @@ export interface Artist {
 
 export interface Track {
   id: string;
+  uri: string;
   href: string;
   name: string;
   release_date: string;
@@ -31,6 +33,7 @@ export interface CurrentTrack {
 
 export interface Album {
   id: string;
+  uri: string;
   href: string;
   name: string;
   release_date: string;

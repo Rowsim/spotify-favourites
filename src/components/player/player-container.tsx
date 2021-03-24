@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React, { useContext, useEffect } from "react";
 import { checkSpotifyTokenAndRefresh } from "../../services/spotify-auth";
+import { setActivePlayer } from "../../services/spotify-player-service";
 import { Player } from "./player";
 import { PlayerContext } from "./PlayerContext";
 
@@ -42,7 +43,8 @@ const PlayerContainer = () => {
 
       player.addListener("ready", ({ device_id }) => {
         console.log("Ready with Device ID", device_id);
-        setDeviceId(device_id);
+        setActivePlayer(device_id);
+        setDeviceId(device_id); // Todo might not need this in state..
       });
 
       player.addListener("not_ready", ({ device_id }) => {
@@ -62,6 +64,7 @@ const PlayerContainer = () => {
 
 const loadSpotifySDKScript = () => {
   const script = document.createElement("script");
+  script.async = true;
   script.src = "https://sdk.scdn.co/spotify-player.js";
   document.body.appendChild(script);
   return script;

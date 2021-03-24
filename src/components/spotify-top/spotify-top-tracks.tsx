@@ -6,6 +6,7 @@ import { getUserTopTracks } from "../../services/spotify-service";
 import { AppContext } from "../../AppContext";
 import notFoundImg from "../../assets/images/not-found.png";
 import "./spotify-top.scss";
+import { playTrack } from "../../services/spotify-player-service";
 
 const SpotifyTopTracks = () => {
   const { topTracks, setTopTracks, selectedTimeRange } = useContext(AppContext);
@@ -47,6 +48,11 @@ const TrackCard = ({ track, position }: TrackCardProps) => {
   const artistNames: string[] = getTrackArtistNames(track.artists);
   const trackImageUrl: string = getTrackImageUrl(track, 1);
   const className = "spotify-top__tracks";
+  
+  const handlePlayClick = () => {
+    playTrack([track.uri]);
+  };
+
   return (
     <div className={`${className}__card`}>
       <div className={`${className}__card__img`}>
@@ -74,7 +80,7 @@ const TrackCard = ({ track, position }: TrackCardProps) => {
           );
         })}
       </div>
-      <div className={`${className}__card__play`}>
+      <div className={`${className}__card__play`} onClick={handlePlayClick}>
         <PlaySvg />
       </div>
     </div>
