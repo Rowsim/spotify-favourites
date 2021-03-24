@@ -1,5 +1,6 @@
 import React, { lazy, useContext, useEffect } from "react";
 import { AppContext } from "../AppContext";
+import { PlayerProvider } from "../components/player/PlayerContext";
 import { getWithExpiry } from "../util/storage-util";
 
 const VantaWrapperLazy = lazy(() => import("../components/vanta/vanta"));
@@ -15,6 +16,9 @@ const SpotifyTopArtistsLazy = lazy(
 const SpotifyTopTracksLazy = lazy(
   () => import("../components/spotify-top/spotify-top-tracks")
 );
+const SpotifyPlayerContainerLazy = lazy(
+  () => import("../components/player/player-container")
+);
 
 const HomePage = () => {
   const { hasSpotifyToken, setHasSpotifyToken, favouritesType } = useContext(
@@ -29,11 +33,14 @@ const HomePage = () => {
       {hasSpotifyToken ? (
         <VantaWrapperLazy>
           <TopControlsLazy />
-          {favouritesType === "tracks" ? (
-            <SpotifyTopTracksLazy />
-          ) : (
-            <SpotifyTopArtistsLazy />
-          )}
+          <PlayerProvider>
+            {favouritesType === "tracks" ? (
+              <SpotifyTopTracksLazy />
+            ) : (
+              <SpotifyTopArtistsLazy />
+            )}
+            <SpotifyPlayerContainerLazy />
+          </PlayerProvider>
         </VantaWrapperLazy>
       ) : (
         <SpotifySignInLazy />

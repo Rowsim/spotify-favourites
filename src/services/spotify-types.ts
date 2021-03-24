@@ -21,6 +21,14 @@ export interface Track {
   album: Album;
 }
 
+export interface CurrentTrack {
+  id: string;
+  name: string;
+  duration: number;
+  imageUrl: string;
+  artistNames: string[];
+}
+
 export interface Album {
   id: string;
   href: string;
