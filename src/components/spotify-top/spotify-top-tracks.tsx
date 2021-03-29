@@ -7,6 +7,7 @@ import { AppContext } from "../../AppContext";
 import notFoundImg from "../../assets/images/not-found.png";
 import "./spotify-top.scss";
 import { playTrack } from "../../services/spotify-player-service";
+import { PlayerContext } from "../player/PlayerContext";
 
 const SpotifyTopTracks = () => {
   const { topTracks, setTopTracks, selectedTimeRange } = useContext(AppContext);
@@ -37,6 +38,9 @@ const SpotifyTopTracks = () => {
               key={track.id + index}
               track={track}
               position={index + 1}
+              nextTrackUris={topTracks
+                .slice(index + 1)
+                .map((track) => track.uri)}
             />
           ))}
       </div>
@@ -44,17 +48,27 @@ const SpotifyTopTracks = () => {
   );
 };
 
-const TrackCard = ({ track, position }: TrackCardProps) => {
+const TrackCard = ({ track, position, nextTrackUris }: TrackCardProps) => {
+  const className = "spotify-top__tracks";
   const artistNames: string[] = getTrackArtistNames(track.artists);
   const trackImageUrl: string = getTrackImageUrl(track, 1);
-  const className = "spotify-top__tracks";
-  
+  const { spotifyPlayerState } = useContext(PlayerContext);
+  const isCurrentlyPlaying =
+    !spotifyPlayerState.paused &&
+    spotifyPlayerState?.track_window?.current_track?.uri === track.uri
+      ? true
+      : false;
   const handlePlayClick = () => {
-    playTrack([track.uri]);
+    playTrack([track.uri, ...nextTrackUris]);
   };
 
   return (
-    <div className={`${className}__card`}>
+    <div
+      className={`${className}__card ${
+        isCurrentlyPlaying ? `${className}__card--playing` : ""
+      }`}
+      onClick={handlePlayClick}
+    >
       <div className={`${className}__card__img`}>
         <img
           src={trackImageUrl ? trackImageUrl : notFoundImg}
@@ -80,7 +94,7 @@ const TrackCard = ({ track, position }: TrackCardProps) => {
           );
         })}
       </div>
-      <div className={`${className}__card__play`} onClick={handlePlayClick}>
+      <div className={`${className}__card__play`}>
         <PlaySvg />
       </div>
     </div>
@@ -107,6 +121,7 @@ export const getTrackArtistNames = (artists: Artist[], limit = 3) => {
 interface TrackCardProps {
   track: Track;
   position: number;
+  nextTrackUris: string[];
 }
 
 export default SpotifyTopTracks;

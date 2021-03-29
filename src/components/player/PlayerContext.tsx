@@ -1,38 +1,33 @@
 import React, { createContext, useState } from "react";
-import { CurrentTrack } from "../../services/spotify-types";
+import { SpotifyPlayerState } from "../../services/spotify-types";
 
 interface PlayerContextType {
   deviceId: string;
   setDeviceId: Function;
-  currentTrack: CurrentTrack;
-  setCurrentTrack: Function;
-  isPlaying: boolean;
-  setIsPlaying: Function;
+  spotifyPlayerState: SpotifyPlayerState;
+  setSpotifyPlayerState: Function;
 }
 
 export const PlayerContext = createContext<PlayerContextType>({
-  deviceId: '',
+  deviceId: "",
   setDeviceId: () => {},
-  currentTrack: {} as CurrentTrack,
-  setCurrentTrack: () => {},
-  isPlaying: false,
-  setIsPlaying: () => {},
+  spotifyPlayerState: {} as SpotifyPlayerState,
+  setSpotifyPlayerState: () => {},
 });
 
 export const PlayerProvider = ({ children }: any) => {
-  const [deviceId, setDeviceId] = useState('');
-  const [currentTrack, setCurrentTrack] = useState({} as CurrentTrack);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [deviceId, setDeviceId] = useState("");
+  const [spotifyPlayerState, setSpotifyPlayerState] = useState(
+    {} as SpotifyPlayerState
+  );
 
   return (
     <PlayerContext.Provider
       value={{
         deviceId,
         setDeviceId,
-        currentTrack,
-        setCurrentTrack,
-        isPlaying,
-        setIsPlaying,
+        spotifyPlayerState,
+        setSpotifyPlayerState,
       }}
     >
       {children}

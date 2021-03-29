@@ -23,14 +23,6 @@ export interface Track {
   album: Album;
 }
 
-export interface CurrentTrack {
-  id: string;
-  name: string;
-  duration: number;
-  imageUrl: string;
-  artistNames: string[];
-}
-
 export interface Album {
   id: string;
   uri: string;
@@ -59,4 +51,36 @@ interface Image {
 
 interface followers {
   total: number;
+}
+
+export interface SpotifyPlayerState {
+  paused: boolean;
+  duration: number;
+  position: number;
+  repeat_mode: number;
+  disallows: {
+    pausing: boolean;
+    skipping_prev: boolean;
+  };
+  timestamp: number;
+  track_window: TrackWindow;
+}
+
+interface TrackWindow {
+  current_track: PlayerTrack;
+  next_tracks: PlayerTrack[];
+  previous_tracks: PlayerTrack[];
+}
+
+interface PlayerTrack {
+  name: string;
+  uri: string;
+  album: {
+    images: Image[];
+  };
+  artists: [
+    {
+      name: string;
+    }
+  ];
 }

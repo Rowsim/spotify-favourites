@@ -2,6 +2,7 @@
 import React, { useContext, useEffect } from "react";
 import { checkSpotifyTokenAndRefresh } from "../../services/spotify-auth";
 import { setActivePlayer } from "../../services/spotify-player-service";
+import { SpotifyPlayerState } from "../../services/spotify-types";
 import { Player } from "./player";
 import { PlayerContext } from "./PlayerContext";
 
@@ -12,7 +13,7 @@ declare global {
 }
 
 const PlayerContainer = () => {
-  const { setDeviceId } = useContext(PlayerContext);
+  const { setDeviceId, setSpotifyPlayerState } = useContext(PlayerContext);
   useEffect(() => {
     const spotifyScript = loadSpotifySDKScript();
     window.onSpotifyWebPlaybackSDKReady = () => {
@@ -37,9 +38,13 @@ const PlayerContainer = () => {
         console.error(message);
       });
 
-      player.addListener("player_state_changed", (state) => {
-        console.log(state);
-      });
+      player.addListener(
+        "player_state_changed",
+        (state: SpotifyPlayerState) => {
+          console.log(state);
+          setSpotifyPlayerState(state);
+        }
+      );
 
       player.addListener("ready", ({ device_id }) => {
         console.log("Ready with Device ID", device_id);

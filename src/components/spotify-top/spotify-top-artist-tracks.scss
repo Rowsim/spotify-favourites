@@ -30,6 +30,33 @@ $transition-hover: 0.3s;
     transition: border-bottom $transition-hover ease-in-out;
     transition: all $transition-hover ease-in-out;
 
+    &--playing {
+      border-left: 7px solid $spotify-green;
+      border-right: 7px solid $spotify-green;
+      animation: 0.4s alternate 0s infinite scale;
+      @keyframes scale {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.007);
+        }
+      }
+
+      .artist-top-tracks__card__info {
+        &__name,
+        &__artists {
+          color: $spotify-green;
+        }
+      }
+
+      .artist-top-tracks__card__play {
+        svg {
+          fill: $spotify-green;
+        }
+      }
+    }
+
     &:hover {
       border-left: 7px solid $spotify-green;
       border-right: 7px solid $spotify-green;
