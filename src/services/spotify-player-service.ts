@@ -36,6 +36,28 @@ export const pause = async () => {
   });
 };
 
+export const next = async () => {
+  const spotifyToken = checkSpotifyTokenAndRefresh();
+
+  fetch(`${SPOTIFY_API_URL}/next`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${spotifyToken}`,
+    },
+  });
+};
+
+export const previous = async () => {
+  const spotifyToken = checkSpotifyTokenAndRefresh();
+
+  fetch(`${SPOTIFY_API_URL}/previous`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${spotifyToken}`,
+    },
+  });
+};
+
 export const setActivePlayer = async (playerId: string, play = false) => {
   const spotifyToken = checkSpotifyTokenAndRefresh();
 
