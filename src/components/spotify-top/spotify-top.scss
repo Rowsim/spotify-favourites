@@ -220,17 +220,30 @@
 
       &--playing {
         border-left: 6px solid $spotify-green;
-        animation: 0.7s alternate 0s infinite scale;
-        @keyframes scale {
-          0% {
-            transform: scale(1);
-          }
-          100% {
-            transform: scale(1.01);
+
+        .spotify-top__tracks__card__img__number {
+          outline: 1px dotted white;
+          transition: outline 1s linear;
+          background: linear-gradient(
+            to right,
+            white 20%,
+            $spotify-green 30%,
+            $spotify-green 70%,
+            white 80%
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-fill-color: transparent;
+          background-size: 200% auto;
+          animation: textShine 2.5s ease-in-out infinite alternate;
+          @keyframes textShine {
+            to {
+              background-position: 200%;
+            }
           }
         }
-        
-        
+
         .spotify-top__tracks__card__play {
           border-top: 2px solid $spotify-green;
           svg {
@@ -238,7 +251,6 @@
           }
         }
       }
-
 
       &:hover,
       &:active {
