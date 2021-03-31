@@ -72,7 +72,7 @@ interface TrackWindow {
   previous_tracks: PlayerTrack[];
 }
 
-interface PlayerTrack {
+export interface PlayerTrack {
   name: string;
   uri: string;
   album: {

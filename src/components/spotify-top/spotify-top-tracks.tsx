@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Artist, Track } from "../../services/spotify-types";
 import { StyledTitle } from "../title/styled-title";
+import { ReactComponent as PauseSvg } from "../../assets/images/pause.svg";
 import { ReactComponent as PlaySvg } from "../../assets/images/play.svg";
 import { getUserTopTracks } from "../../services/spotify-service";
 import { AppContext } from "../../AppContext";
 import notFoundImg from "../../assets/images/not-found.png";
 import "./spotify-top.scss";
-import { playTrack } from "../../services/spotify-player-service";
+import { pause, playTrack } from "../../services/spotify-player-service";
 import { PlayerContext } from "../player/PlayerContext";
 
 const SpotifyTopTracks = () => {
@@ -59,7 +60,8 @@ const TrackCard = ({ track, position, nextTrackUris }: TrackCardProps) => {
       ? true
       : false;
   const handlePlayClick = () => {
-    playTrack([track.uri, ...nextTrackUris]);
+    // TODO think about how to handle active tracks that have been paused... probably an extra piece of state here
+    isCurrentlyPlaying ? pause() : playTrack([track.uri, ...nextTrackUris]);
   };
 
   return (
@@ -94,9 +96,15 @@ const TrackCard = ({ track, position, nextTrackUris }: TrackCardProps) => {
           );
         })}
       </div>
-      <div className={`${className}__card__play`}>
-        <PlaySvg />
-      </div>
+      {!isCurrentlyPlaying ? (
+        <div className={`${className}__card__play`}>
+          <PlaySvg />
+        </div>
+      ) : (
+        <div className={`${className}__card__play`}>
+          <PauseSvg />
+        </div>
+      )}
     </div>
   );
 };

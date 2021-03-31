@@ -1,11 +1,13 @@
 import React, { createContext, useState } from "react";
-import { SpotifyPlayerState } from "../../services/spotify-types";
+import { PlayerTrack, SpotifyPlayerState } from "../../services/spotify-types";
 
 interface PlayerContextType {
   deviceId: string;
   setDeviceId: Function;
   spotifyPlayerState: SpotifyPlayerState;
   setSpotifyPlayerState: Function;
+  trackHistory: PlayerTrack[];
+  setTrackHistory: Function;
 }
 
 export const PlayerContext = createContext<PlayerContextType>({
@@ -13,6 +15,8 @@ export const PlayerContext = createContext<PlayerContextType>({
   setDeviceId: () => {},
   spotifyPlayerState: {} as SpotifyPlayerState,
   setSpotifyPlayerState: () => {},
+  trackHistory: [],
+  setTrackHistory: () => {}
 });
 
 export const PlayerProvider = ({ children }: any) => {
@@ -20,6 +24,7 @@ export const PlayerProvider = ({ children }: any) => {
   const [spotifyPlayerState, setSpotifyPlayerState] = useState(
     {} as SpotifyPlayerState
   );
+  const [trackHistory, setTrackHistory] = useState([]);
 
   return (
     <PlayerContext.Provider
@@ -28,6 +33,8 @@ export const PlayerProvider = ({ children }: any) => {
         setDeviceId,
         spotifyPlayerState,
         setSpotifyPlayerState,
+        trackHistory,
+        setTrackHistory
       }}
     >
       {children}

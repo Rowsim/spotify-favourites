@@ -2,18 +2,18 @@
 import React, { useContext, useEffect } from "react";
 import { checkSpotifyTokenAndRefresh } from "../../services/spotify-auth";
 import { setActivePlayer } from "../../services/spotify-player-service";
-import { SpotifyPlayerState } from "../../services/spotify-types";
+import { PlayerTrack, SpotifyPlayerState } from "../../services/spotify-types";
 import { Player } from "./player";
 import { PlayerContext } from "./PlayerContext";
 
-declare global {
-  interface Window {
-    onSpotifyWebPlaybackSDKReady: any;
-  }
-}
-
 const PlayerContainer = () => {
-  const { setDeviceId, setSpotifyPlayerState } = useContext(PlayerContext);
+  const {
+    setDeviceId,
+    setSpotifyPlayerState,
+    trackHistory,
+    setTrackHistory,
+  } = useContext(PlayerContext);
+
   useEffect(() => {
     const spotifyScript = loadSpotifySDKScript();
     window.onSpotifyWebPlaybackSDKReady = () => {
@@ -24,6 +24,21 @@ const PlayerContainer = () => {
           cb(token);
         },
       });
+
+      const addTrackToHistory = (currentTrack: PlayerTrack) => {
+        // TODO investiagte why trackHistory isn't appearing
+        console.log("trackHistory ", trackHistory);
+        const newTrackHistory = [...trackHistory];
+        console.log("newTrackHistory ", newTrackHistory);
+        let isDuplicate = false;
+        trackHistory.forEach((track) => {
+          if (track.uri === currentTrack.uri) isDuplicate = true;
+        });
+        if (!isDuplicate) {
+          newTrackHistory.push(currentTrack);
+          setTrackHistory(newTrackHistory);
+        }
+      };
 
       player.addListener("initialization_error", ({ message }) => {
         console.error(message);
@@ -43,6 +58,7 @@ const PlayerContainer = () => {
         (state: SpotifyPlayerState) => {
           console.log(state);
           setSpotifyPlayerState(state);
+          addTrackToHistory(state.track_window.current_track);
         }
       );
 
