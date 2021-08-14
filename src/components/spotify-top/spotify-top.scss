@@ -1,7 +1,7 @@
 @import "../../styles/globals.scss";
 @import "../../styles/animations.scss";
-@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 .spotify-top {
   height: 100%;
   display: flex;
@@ -50,7 +50,7 @@
     display: flex;
     overflow-x: scroll;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 36px;
 
     &__item {
       display: flex;
@@ -63,8 +63,8 @@
       &:hover {
         img {
           opacity: 0.9;
-          height: 165px;
-          width: 165px;
+          height: 130px;
+          width: 130px;
         }
       }
 
@@ -73,8 +73,8 @@
       }
 
       img {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
         margin-bottom: 10px;
         border-radius: 17%;
         transition: height 0.4s, width 0.4s ease;
@@ -90,9 +90,9 @@
         }
 
         img {
-          width: 170px;
-          height: 170px;
-          border-left: 6px solid $orange-c;
+          width: 140px;
+          height: 140px;
+          border-bottom: 3px solid $orange-c;
         }
       }
     }

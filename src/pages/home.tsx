@@ -3,7 +3,6 @@ import { AppContext } from "../AppContext";
 import { PlayerProvider } from "../components/player/PlayerContext";
 import { getWithExpiry } from "../util/storage-util";
 
-const VantaWrapperLazy = lazy(() => import("../components/vanta/vanta"));
 const SpotifySignInLazy = lazy(
   () => import("../components/spotify-sign-in/spotify-sign-in")
 );
@@ -31,7 +30,7 @@ const HomePage = () => {
   return (
     <>
       {hasSpotifyToken ? (
-        <VantaWrapperLazy>
+        <>
           <TopControlsLazy />
           <PlayerProvider>
             {favouritesType === "tracks" ? (
@@ -41,9 +40,9 @@ const HomePage = () => {
             )}
             <SpotifyPlayerContainerLazy />
           </PlayerProvider>
-        </VantaWrapperLazy>
+          </>
       ) : (
-        <SpotifySignInLazy />
+          <SpotifySignInLazy />
       )}
     </>
   );

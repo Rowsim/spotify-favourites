@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../AppContext";
 import { getUserTopArtists } from "../../services/spotify-service";
 import { Artist } from "../../services/spotify-types";
-import { StyledTitle } from "../title/styled-title";
 import { SpotifyTopArtistsTracks } from "./spotify-top-artist-tracks";
 import "./spotify-top.scss";
 
@@ -52,7 +51,6 @@ const SpotifyTopArtists = () => {
 
   return (
     <div className="spotify-top spotify-top--artists fade-in">
-      <StyledTitle fontSize="60px">Your top artists</StyledTitle>
       <div className="spotify-top__scroll-buttons"></div>
       <div className="spotify-top__selector-container">
         <div
@@ -110,8 +108,8 @@ const ArtistSelector = ({
     >
       <img
         alt="artist"
-        width={150}
-        height={150}
+        width={120}
+        height={120}
         src={artist.images ? artist.images[2].url : ""} //TODO Not found image
       />
       <div className="spotify-top__selector__item__name">{artist.name}</div>

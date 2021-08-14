@@ -4,6 +4,7 @@ import { FavouritesType } from "./favourites-options";
 import { TimeRange } from "./time-range";
 import { UserIcon } from "./user-icon";
 
+
 const TopControls = () => (
   <TopControlsContainer>
     <FavouritesType />
@@ -17,6 +18,7 @@ const TopControlsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-bottom: 40px;
 `;
 
 export default TopControls;

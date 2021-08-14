@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Artist, Track } from "../../services/spotify-types";
-import { StyledTitle } from "../title/styled-title";
 import { ReactComponent as PauseSvg } from "../../assets/images/pause.svg";
 import { ReactComponent as PlaySvg } from "../../assets/images/play.svg";
 import { getUserTopTracks } from "../../services/spotify-service";
@@ -31,7 +30,6 @@ const SpotifyTopTracks = () => {
 
   return (
     <div className="spotify-top spotify-top--tracks fade-in">
-      <StyledTitle fontSize="60px">Your top tracks</StyledTitle>
       <div className="spotify-top__tracks">
         {topTracks &&
           topTracks.map((track, index) => (
