@@ -1,1 +1,0 @@
-{"version":3,"sources":["player.scss"],"names":[],"mappings":"AAAA,QACI,WAAA,CACA,YAAA,CACA,cAAA,CACA,cAAA,CACA,QAAA","file":"6.2c32a674.chunk.css","sourcesContent":[".player {\n    width: 100px;\n    height: 100px;\n    background: red;\n    position: fixed;\n    bottom: 0;\n}"]}
