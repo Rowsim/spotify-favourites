@@ -40,7 +40,7 @@ export const next = async () => {
   const spotifyToken = checkSpotifyTokenAndRefresh();
 
   fetch(`${SPOTIFY_API_URL}/next`, {
-    method: "PUT",
+    method: "POST",
     headers: {
       Authorization: `Bearer ${spotifyToken}`,
     },
@@ -51,7 +51,7 @@ export const previous = async () => {
   const spotifyToken = checkSpotifyTokenAndRefresh();
 
   fetch(`${SPOTIFY_API_URL}/previous`, {
-    method: "PUT",
+    method: "POST",
     headers: {
       Authorization: `Bearer ${spotifyToken}`,
     },

@@ -3,9 +3,9 @@ import { Track } from "../../services/spotify-types";
 import { ReactComponent as PlaySvg } from "../../assets/images/play-arrow.svg";
 import { getArtistTopTracks } from "../../services/spotify-service";
 import { getTrackArtistNames, getTrackImageUrl } from "./spotify-top-tracks";
-import "./spotify-top-artist-tracks.scss";
 import { playTrack } from "../../services/spotify-player-service";
 import { PlayerContext } from "../player/PlayerContext";
+import "./spotify-top-artist-tracks.scss";
 
 export const SpotifyTopArtistsTracks = ({ artistId }: { artistId: string }) => {
   const [tracks, setTracks] = useState([] as Track[]);
