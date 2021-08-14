@@ -55,7 +55,7 @@ const TrackCard = ({ track, position, nextTrackUris }: TrackCardProps) => {
   const trackImageUrl: string = getTrackImageUrl(track, 1);
   const { spotifyPlayerState } = useContext(PlayerContext);
   const isCurrentlyPlaying =
-    !spotifyPlayerState.paused &&
+    !spotifyPlayerState?.paused &&
     spotifyPlayerState?.track_window?.current_track?.uri === track.uri
       ? true
       : false;

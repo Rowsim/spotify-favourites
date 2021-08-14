@@ -5,7 +5,7 @@ import { PlayerContext } from "./PlayerContext";
 
 export const Player = () => {
   const { spotifyPlayerState } = useContext(PlayerContext);
-  const isPlaying = !spotifyPlayerState.paused;
+  const isPlaying = !spotifyPlayerState?.paused;
 
   const handlePlayClick = () => {
     play();

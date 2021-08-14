@@ -58,7 +58,7 @@ const PlayerContainer = () => {
         (state: SpotifyPlayerState) => {
           console.log(state);
           setSpotifyPlayerState(state);
-          addTrackToHistory(state.track_window.current_track);
+          addTrackToHistory(state?.track_window?.current_track);
         }
       );
 
