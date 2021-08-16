@@ -9,6 +9,7 @@ import { PlayerContext } from "./PlayerContext";
 import { ReactComponent as PlaySvg } from "../../assets/images/play-arrow.svg";
 import { ReactComponent as PauseSvg } from "../../assets/images/pause.svg";
 import { ReactComponent as NextSvg } from "../../assets/images/next.svg";
+import { StyledNotes } from "../svg-animations/StyledNotes";
 import "./player.scss";
 
 export const Player = () => {
@@ -37,7 +38,18 @@ export const Player = () => {
 
       <div className="player__current" onClick={handlePlayClick}>
         <div className="player__current__play">
-          {isPlaying ? <PauseSvg /> : <PlaySvg />}
+          {isPlaying ? (
+            <>
+              <div className="player__current__play__btn">
+                <PauseSvg />
+              </div>
+              <StyledNotes />
+            </>
+          ) : (
+            <div className="player__current__play__btn">
+              <PlaySvg />
+            </div>
+          )}
         </div>
         {currentTrackImg && <img src={currentTrackImg} alt="current-track" />}
       </div>

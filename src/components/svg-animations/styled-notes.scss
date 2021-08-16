@@ -1,12 +1,7 @@
-.styled-girl {
+.styled-note {
+  pointer-events: none;
+
   svg {
-    height: 20vw;
-    max-height: 280px;
-
-    @media only screen and (max-width: 768px) {
-      height: 50vw;
-    }
-
     &:hover {
       #note-1,
       #note-2,
@@ -70,29 +65,19 @@
   }
 
   #head {
-    animation: head ease-in-out 0.5s infinite alternate;
+    display: none;
   }
 
   #hair {
-    animation: hair ease-in-out 0.5s infinite alternate;
+    display: none;
   }
 
-  @keyframes hair {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(10deg);
-    }
+  #girl {
+    display: none;
   }
 
-  @keyframes head {
-    from {
-      transform: translate(0px);
-    }
-    to {
-      transform: translate(-2px, 5px);
-    }
+  #phone {
+    display: none;
   }
 
   @keyframes note1 {

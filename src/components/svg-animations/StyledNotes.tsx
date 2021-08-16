@@ -1,4 +1,4 @@
 import React from "react";
 import { ReactComponent as GirlMusicSvg } from "../../assets/images/girl-music.svg";
-import "./styled-girl.scss";
-export const StyledGirl = () => <GirlMusicSvg className="styled-girl" />;
+import "./styled-notes.scss";
+export const StyledNotes = () => <GirlMusicSvg className="styled-note" />;
