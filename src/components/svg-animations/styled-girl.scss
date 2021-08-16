@@ -1,23 +1,10 @@
 .styled-girl {
-  svg {
-    height: 20vw;
-    max-height: 280px;
-
-    @media only screen and (max-width: 768px) {
-      height: 50vw;
-    }
-
-    &:hover {
-      #note-1,
-      #note-2,
-      #note-3,
-      #note-4 {
-        transition: fill 1.5s ease-in-out;
-        fill: #fd6500;
-      }
-    }
+  height: 20vw;
+  max-height: 280px;
+  @media only screen and (max-width: 768px) {
+    height: 50vw;
   }
-
+  
   #note-1,
   #note-2,
   #note-3,
