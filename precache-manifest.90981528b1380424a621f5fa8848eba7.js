@@ -1,43 +1,43 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2809a48d25769695ba2e6866ab58c9d5",
+    "revision": "556b45cc088309c852358a522a6a2276",
     "url": "/spotify-favourites/index.html"
   },
   {
-    "revision": "4a9eaa660f40c63a44f0",
+    "revision": "552f6046e574248610d7",
     "url": "/spotify-favourites/static/css/1.780851a2.chunk.css"
   },
   {
-    "revision": "8af5aa7ed41f5e07d789",
-    "url": "/spotify-favourites/static/css/6.d83f5821.chunk.css"
+    "revision": "f055871d99cc3cd00117",
+    "url": "/spotify-favourites/static/css/6.1ff33b86.chunk.css"
   },
   {
-    "revision": "34b181dd4b6b7e002c97",
-    "url": "/spotify-favourites/static/css/7.6b44e685.chunk.css"
+    "revision": "5a611f8bff3a34b8fc77",
+    "url": "/spotify-favourites/static/css/7.96736d8e.chunk.css"
   },
   {
-    "revision": "5e028e97a2d257a56236",
+    "revision": "d3c1f7eba20056493c4e",
     "url": "/spotify-favourites/static/css/9.08d950d1.chunk.css"
   },
   {
-    "revision": "634763de4393b924f52c",
+    "revision": "6cdf1396e6738efdb991",
     "url": "/spotify-favourites/static/css/main.6c10b7ce.chunk.css"
   },
   {
-    "revision": "140163909f4311b9a6bf",
-    "url": "/spotify-favourites/static/js/0.bc152f3a.chunk.js"
+    "revision": "e192b1476f03043662a9",
+    "url": "/spotify-favourites/static/js/0.d9a2d2d3.chunk.js"
   },
   {
     "revision": "e2a608f3b392ed4f1f89ddb34b2dbcda",
-    "url": "/spotify-favourites/static/js/0.bc152f3a.chunk.js.LICENSE.txt"
+    "url": "/spotify-favourites/static/js/0.d9a2d2d3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4a9eaa660f40c63a44f0",
-    "url": "/spotify-favourites/static/js/1.f98c7bef.chunk.js"
+    "revision": "552f6046e574248610d7",
+    "url": "/spotify-favourites/static/js/1.114f12f9.chunk.js"
   },
   {
-    "revision": "d94a070765fc226fe1d1",
-    "url": "/spotify-favourites/static/js/10.61a2f8eb.chunk.js"
+    "revision": "aa20618bdc2f0e9403bb",
+    "url": "/spotify-favourites/static/js/10.275f741c.chunk.js"
   },
   {
     "revision": "b126b96fea3ce9865001",
@@ -48,32 +48,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/spotify-favourites/static/js/4.05316fe7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1aaa988c4c1f4ff10668",
-    "url": "/spotify-favourites/static/js/5.e01d6b32.chunk.js"
+    "revision": "0752eed1c66cecd33ba8",
+    "url": "/spotify-favourites/static/js/5.55ce7f04.chunk.js"
   },
   {
-    "revision": "8af5aa7ed41f5e07d789",
-    "url": "/spotify-favourites/static/js/6.c4230cdf.chunk.js"
+    "revision": "f055871d99cc3cd00117",
+    "url": "/spotify-favourites/static/js/6.54d74072.chunk.js"
   },
   {
-    "revision": "34b181dd4b6b7e002c97",
-    "url": "/spotify-favourites/static/js/7.ed990733.chunk.js"
+    "revision": "5a611f8bff3a34b8fc77",
+    "url": "/spotify-favourites/static/js/7.39666675.chunk.js"
   },
   {
-    "revision": "262f928fc19e2ead222f",
-    "url": "/spotify-favourites/static/js/8.9526a8b5.chunk.js"
+    "revision": "c36f93963cb9dcf952ce",
+    "url": "/spotify-favourites/static/js/8.f38f3147.chunk.js"
   },
   {
-    "revision": "5e028e97a2d257a56236",
-    "url": "/spotify-favourites/static/js/9.f27c3c32.chunk.js"
+    "revision": "d3c1f7eba20056493c4e",
+    "url": "/spotify-favourites/static/js/9.99fedf76.chunk.js"
   },
   {
-    "revision": "634763de4393b924f52c",
-    "url": "/spotify-favourites/static/js/main.412c3e31.chunk.js"
+    "revision": "6cdf1396e6738efdb991",
+    "url": "/spotify-favourites/static/js/main.612cf61b.chunk.js"
   },
   {
-    "revision": "3a8a64638e5a9a214c43",
-    "url": "/spotify-favourites/static/js/runtime-main.cb659c13.js"
+    "revision": "17e4bbe5b70705433438",
+    "url": "/spotify-favourites/static/js/runtime-main.b48b343f.js"
   },
   {
     "revision": "a1b46fe7e5450b617c0acffde346f1b4",
