@@ -217,6 +217,15 @@
       border-left: 6px solid $orange-c;
       transition: border-color 0.2s ease;
 
+      
+
+      @media only screen and (max-width: 425px) {
+        height: 325px;
+        min-width: 235px;
+        margin: 24px 12px;
+      }
+
+
       &--playing {
         border-left: 6px solid $spotify-green;
 
@@ -271,11 +280,6 @@
             fill: $orange-c;
           }
         }
-      }
-
-      @media only screen and (max-width: 425px) {
-        min-width: 200px;
-        margin: 24px 12px;
       }
 
       &__img {

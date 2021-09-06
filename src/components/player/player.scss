@@ -1,7 +1,7 @@
 @import "../../styles/globals.scss";
 
 .player {
-  background: rgba(253, 101, 0, 0.7);
+  background: rgba(253, 101, 0, 0.05);
   position: fixed;
   bottom: 0;
   display: flex;
@@ -11,9 +11,10 @@
   border-radius: 0 12px 0 0;
 
   @media only screen and (max-width: 425px) {
+    background: rgba(253, 101, 0, 0.2);
     width: 98%;
     margin-left: 4px;
-    border-radius: 50px;
+    border-radius: 25px;
   }
 
   &__previous,
