@@ -9,12 +9,12 @@
   justify-content: center;
   width: 235px;
   border-radius: 0 12px 0 0;
+  z-index: 99;
 
   @media only screen and (max-width: 425px) {
-    background: rgba(253, 101, 0, 0.2);
-    width: 98%;
-    margin-left: 4px;
-    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    border-top-right-radius: 36px;
   }
 
   &__previous,
