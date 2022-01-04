@@ -27,12 +27,10 @@ const PlayerContainer = () => {
       });
 
       const addTrackToHistory = (currentTrack: PlayerTrack) => {
-        // TODO investiagte why trackHistory isn't appearing
-        console.log('currentTrack :: ', currentTrack);
-        console.log("trackHistory ", trackHistory);
-        const isDuplicate = trackHistory.some((track) => track.uri === currentTrack.uri);
+        const isDuplicate = trackHistory.some(
+          (track) => track.uri === currentTrack.uri
+        );
         if (!isDuplicate) {
-          console.log('Not a duplicate.. adding currentTrack to history');
           setTrackHistory([...trackHistory, currentTrack]);
         }
       };
@@ -63,6 +61,7 @@ const PlayerContainer = () => {
         console.log("Ready with Device ID", device_id);
         setActivePlayer(device_id);
         setDeviceId(device_id); // Todo might not need this in state..
+        player.setVolume(0.4);
       });
 
       player.addListener("not_ready", ({ device_id }) => {
