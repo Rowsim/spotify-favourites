@@ -14,6 +14,8 @@ interface AppContextType {
   setTopArtists: Function;
   userProfile: UserProfile;
   setUserProfile: Function;
+  playerWebSDKConnected: boolean;
+  setPlayerWebSDKConnected: Function;
 }
 
 export const AppContext = createContext<AppContextType>({
@@ -29,6 +31,8 @@ export const AppContext = createContext<AppContextType>({
   setTopArtists: () => {},
   userProfile: {} as UserProfile,
   setUserProfile: () => {},
+  playerWebSDKConnected: false,
+  setPlayerWebSDKConnected: () => {},
 });
 
 export const AppProvider = ({ children }: any) => {
@@ -38,6 +42,7 @@ export const AppProvider = ({ children }: any) => {
   const [topTracks, setTopTracks] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
   const [userProfile, setUserProfile] = useState({} as UserProfile);
+  const [playerWebSDKConnected, setPlayerWebSDKConnected] = useState(false);
 
   return (
     <AppContext.Provider
@@ -54,6 +59,8 @@ export const AppProvider = ({ children }: any) => {
         setTopArtists,
         userProfile,
         setUserProfile,
+        playerWebSDKConnected,
+        setPlayerWebSDKConnected
       }}
     >
       {children}

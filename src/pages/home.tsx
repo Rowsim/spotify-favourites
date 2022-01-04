@@ -18,11 +18,15 @@ const SpotifyTopTracksLazy = lazy(
 const SpotifyPlayerContainerLazy = lazy(
   () => import("../components/player/player-container")
 );
+const SetupLoadingLazy = lazy(() => import("../components/loading/setup-load"));
 
 const HomePage = () => {
-  const { hasSpotifyToken, setHasSpotifyToken, favouritesType } = useContext(
-    AppContext
-  );
+  const {
+    hasSpotifyToken,
+    setHasSpotifyToken,
+    favouritesType,
+    playerWebSDKConnected,
+  } = useContext(AppContext);
   useEffect(() => {
     setHasSpotifyToken(getWithExpiry("spotifyToken") != null);
   }, [setHasSpotifyToken]);
@@ -31,18 +35,24 @@ const HomePage = () => {
     <>
       {hasSpotifyToken ? (
         <>
-          <TopControlsLazy />
           <PlayerProvider>
-            {favouritesType === "tracks" ? (
-              <SpotifyTopTracksLazy />
-            ) : (
-              <SpotifyTopArtistsLazy />
-            )}
             <SpotifyPlayerContainerLazy />
+            {playerWebSDKConnected ? (
+              <>
+                <TopControlsLazy />
+                {favouritesType === "tracks" ? (
+                  <SpotifyTopTracksLazy />
+                ) : (
+                  <SpotifyTopArtistsLazy />
+                )}
+              </>
+            ) : (
+              <SetupLoadingLazy />
+            )}
           </PlayerProvider>
-          </>
+        </>
       ) : (
-          <SpotifySignInLazy />
+        <SpotifySignInLazy />
       )}
     </>
   );

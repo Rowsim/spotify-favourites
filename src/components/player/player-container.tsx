@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React, { useContext, useEffect } from "react";
+import { AppContext } from "../../AppContext";
 import { checkSpotifyTokenAndRefresh } from "../../services/spotify-auth";
 import { setActivePlayer } from "../../services/spotify-player-service";
 import { PlayerTrack, SpotifyPlayerState } from "../../services/spotify-types";
@@ -7,14 +8,14 @@ import { Player } from "./player";
 import { PlayerContext } from "./PlayerContext";
 
 const PlayerContainer = () => {
-  const {
-    setDeviceId,
-    setSpotifyPlayerState,
-    trackHistory,
-    setTrackHistory,
-  } = useContext(PlayerContext);
+  const { setDeviceId, setSpotifyPlayerState, trackHistory, setTrackHistory } =
+    useContext(PlayerContext);
+
+  const { playerWebSDKConnected, setPlayerWebSDKConnected } =
+    useContext(AppContext);
 
   useEffect(() => {
+    if (playerWebSDKConnected) return;
     const spotifyScript = loadSpotifySDKScript();
     window.onSpotifyWebPlaybackSDKReady = () => {
       const token = checkSpotifyTokenAndRefresh();
@@ -27,16 +28,12 @@ const PlayerContainer = () => {
 
       const addTrackToHistory = (currentTrack: PlayerTrack) => {
         // TODO investiagte why trackHistory isn't appearing
+        console.log('currentTrack :: ', currentTrack);
         console.log("trackHistory ", trackHistory);
-        const newTrackHistory = [...trackHistory];
-        console.log("newTrackHistory ", newTrackHistory);
-        let isDuplicate = false;
-        trackHistory.forEach((track) => {
-          if (track.uri === currentTrack.uri) isDuplicate = true;
-        });
+        const isDuplicate = trackHistory.some((track) => track.uri === currentTrack.uri);
         if (!isDuplicate) {
-          newTrackHistory.push(currentTrack);
-          setTrackHistory(newTrackHistory);
+          console.log('Not a duplicate.. adding currentTrack to history');
+          setTrackHistory([...trackHistory, currentTrack]);
         }
       };
 
@@ -72,7 +69,15 @@ const PlayerContainer = () => {
         console.log("Device ID has gone offline", device_id);
       });
 
-      player.connect();
+      player.connect().then((success) => {
+        if (success) {
+          setTimeout(() => setPlayerWebSDKConnected(true), 2000);
+          console.log("Spotify Player Web SDK succesfully connected!");
+        } else {
+          setPlayerWebSDKConnected(false);
+          console.error("Spotify Player Web SDK failed to connect.");
+        }
+      });
     };
 
     return () => {
@@ -80,7 +85,8 @@ const PlayerContainer = () => {
     };
   }, []);
 
-  return <Player />;
+  if (playerWebSDKConnected) return <Player />;
+  else return null;
 };
 
 const loadSpotifySDKScript = () => {

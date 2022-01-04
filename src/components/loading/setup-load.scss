@@ -1,0 +1,31 @@
+.setup-load {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 124px;
+  }
+
+  p {
+    margin: 8px 0;
+    color: white;
+    font-size: 22px;
+    animation: textColor 4s ease-in-out infinite;
+  }
+}
+
+@keyframes textColor {
+  0% {
+    color: #fd6500;
+  }
+  40% {
+    color: #1db954;
+  }
+  100% {
+    color: #fd6500;
+  }
+}
