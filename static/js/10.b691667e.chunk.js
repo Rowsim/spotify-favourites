@@ -1,0 +1,2 @@
+(this["webpackJsonpspotify-favourites"]=this["webpackJsonpspotify-favourites"]||[]).push([[10],{270:function(t,e,a){"use strict";a.r(e);var n=a(0),i=a.n(n),s=a(271),p=a.n(s);a(272);e.default=function(){return i.a.createElement("div",{className:"setup-load"},i.a.createElement("img",{alt:"loading",src:p.a}),i.a.createElement("p",null,"Setting things up!"))}},271:function(t,e,a){t.exports=a.p+"static/media/pineapple.63eca17c.png"},272:function(t,e,a){}}]);
+//# sourceMappingURL=10.b691667e.chunk.js.map
