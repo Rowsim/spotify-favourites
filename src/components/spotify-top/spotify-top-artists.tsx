@@ -110,7 +110,7 @@ const ArtistSelector = ({
         alt="artist"
         width={120}
         height={120}
-        src={artist.images ? artist.images[2].url : ""} //TODO Not found image
+        src={artist.images && artist.images[2] ? artist.images[2].url : ""} // TODO Not found image
       />
       <div className="spotify-top__selector__item__name">{artist.name}</div>
     </div>

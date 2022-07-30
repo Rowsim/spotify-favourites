@@ -17,7 +17,7 @@ export const UserIcon = () => {
       {userProfile.display_name && (
         <StyledUserIcon>
           <img
-            src={userProfile.images ? userProfile.images[0].url : ""}
+            src={userProfile.images && userProfile.images[0] ? userProfile.images[0].url : ""}
             alt="profile"
           />
           <a
